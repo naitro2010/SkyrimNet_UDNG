@@ -1,6 +1,5 @@
 Scriptname skynet_DeviousScript
 bool bHasDD = False
-bool bHasUD = False
 bool bHasDDExpansion = False
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
@@ -16,76 +15,21 @@ EndFunction
 
 function LockDeviceOnActor(Actor akOriginator, string paramsJson, Form inventoryDevice) Global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-    If !UDAPI_local.ActorIsValidForUD(akOriginator)
-    return
-    EndIf
-    UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-    If !oslot.hasFreeHands(true)
-    return
-    EndIf
     Armor deviceInventory=(inventoryDevice as Armor);  
     libs_local.LockDevice(akTarget,deviceInventory,true)
     return
 EndFunction
 
-
-
-Function ActivateVibrator(Actor akOriginator, string contextJson, string paramsJson) global
-    actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
-    zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
-
-    if (!akOriginator)
-        Debug.Trace("[SkyrimNetInternal] ActivateRandomDevice: akOriginator is null")
-        return
-    endif
-    If !UDAPI_local.isRegistered(akTarget)
-        return
-    EndIf
-    Debug.Trace("[SkyrimNetInternal] ActivateRandomDevice: Activating a random UDNG device on " + akTarget.GetDisplayName())
-
-    UD_CustomDevice_NPCSlot slot=UDAPI_local.getNPCSlotByActor(akTarget)
-    UD_CustomDevice_RenderScript[] vibe_list=slot.getOffVibrators()
-    Int deviceCount=slot.getOffVibratorNum()+(-1)
-    If (deviceCount >= 0)
-        Int deviceIdx=Utility.RandomInt(0,deviceCount)
-        Debug.Trace("[SkyrimNetInternal] ActivateRandomDevice: Activating a random UDNG device " + deviceIdx + " on "  + akTarget.GetDisplayName())
-        vibe_list[deviceIdx].activateDevice()
-    EndIf
-EndFunction
-
-; Eligibility function for an "Animation<type>" action
-bool Function ActivateVibrator_IsEligible(Actor akActor, string contextJson, string paramsJson) global
-    Debug.Trace("[SkyrimNetInternal] ActivateRandomDevice_IsEligible called for " + akActor.GetDisplayName())
-
-    if akActor.IsInCombat()
-        Debug.Trace("[SkyrimNetInternal] ActivateRandomDevice_IsEligible: " + akActor.GetDisplayName() + " is in combat. Cannot activate.")
-        return false
-    endif
-
-    return true
-
-EndFunction
 bool Function DDNG_IsEligible(Actor akActor, string contextJson, string paramsJson) global
-    return DeviousScript.DDNG_IsEligible(akActor,contextJson,paramsJson)
+
+    return true;
 EndFunction
+
 Function RegisterDeviousActions() global
 
 
-          SkyrimNetApi.RegisterAction("ActivateVibrator", "Activate a vibrator on an actor.", \
-                                "skynet_DeviousScript", "ActivateVibrator_IsEligible", \
-                                "skynet_DeviousScript", "ActivateVibrator", \
-                                "", "PAPYRUS", \
-                                3, "{\"target\": \"Actor\"}") 
+         
 
 SkyrimNetApi.RegisterSubCategory("BDSMUNLOCK","unlock something on an actor","skynet_DeviousScript","DDNG_IsEligible","",1,"","UNEQUIP")
 
@@ -386,15 +330,9 @@ EndFunction
 
 Function ExtCmdUnequipCollar(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipCollar called for " + akOriginator.GetDisplayName())
@@ -420,15 +358,9 @@ EndFunction
 
 Function ExtCmdUnequipBelt(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipBelt called for " + akOriginator.GetDisplayName())
@@ -454,15 +386,9 @@ EndFunction
 
 Function ExtCmdUnequipGag(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipGag called for " + akOriginator.GetDisplayName())
@@ -488,15 +414,9 @@ EndFunction
 
 Function ExtCmdUnequipBinder(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipBinder called for " + akOriginator.GetDisplayName())
@@ -522,15 +442,9 @@ EndFunction
 
 Function ExtCmdUnequipYoke(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipYoke called for " + akOriginator.GetDisplayName())
@@ -556,15 +470,9 @@ EndFunction
 
 Function ExtCmdUnequipElbowTie(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipElbowTie called for " + akOriginator.GetDisplayName())
@@ -590,15 +498,9 @@ EndFunction
 
 Function ExtCmdUnequipStraitJacket(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipStraitJacket called for " + akOriginator.GetDisplayName())
@@ -624,15 +526,9 @@ EndFunction
 
 Function ExtCmdUnequipCorset(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipCorset called for " + akOriginator.GetDisplayName())
@@ -658,15 +554,9 @@ EndFunction
 
 Function ExtCmdUnequipHood(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipHood called for " + akOriginator.GetDisplayName())
@@ -692,15 +582,9 @@ EndFunction
 
 Function ExtCmdUnequipHobbleSkirt(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipHobbleSkirt called for " + akOriginator.GetDisplayName())
@@ -726,15 +610,9 @@ EndFunction
 
 Function ExtCmdUnequipGloves(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipGloves called for " + akOriginator.GetDisplayName())
@@ -760,15 +638,9 @@ EndFunction
 
 Function ExtCmdUnequipSuit(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipSuit called for " + akOriginator.GetDisplayName())
@@ -794,15 +666,9 @@ EndFunction
 
 Function ExtCmdUnequipHarness(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipHarness called for " + akOriginator.GetDisplayName())
@@ -828,15 +694,9 @@ EndFunction
 
 Function ExtCmdUnequipBlindfold(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipBlindfold called for " + akOriginator.GetDisplayName())
@@ -862,15 +722,9 @@ EndFunction
 
 Function ExtCmdUnequipAnkleShackles(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipAnkleShackles called for " + akOriginator.GetDisplayName())
@@ -896,15 +750,9 @@ EndFunction
 
 Function ExtCmdUnequipClamps(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipClamps called for " + akOriginator.GetDisplayName())
@@ -930,15 +778,9 @@ EndFunction
 
 Function ExtCmdUnequipPlugVaginal(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipPlugVaginal called for " + akOriginator.GetDisplayName())
@@ -964,15 +806,9 @@ EndFunction
 
 Function ExtCmdUnequipPlugAnal(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipPlugAnal called for " + akOriginator.GetDisplayName())
@@ -998,15 +834,9 @@ EndFunction
 
 Function ExtCmdUnequipPiercingsNipple(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipPiercingsNipple called for " + akOriginator.GetDisplayName())
@@ -1032,15 +862,9 @@ EndFunction
 
 Function ExtCmdUnequipPiercingsVaginal(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipPiercingsVaginal called for " + akOriginator.GetDisplayName())
@@ -1066,15 +890,9 @@ EndFunction
 
 Function ExtCmdUnequipArmCuffs(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipArmCuffs called for " + akOriginator.GetDisplayName())
@@ -1100,15 +918,9 @@ EndFunction
 
 Function ExtCmdUnequipLegCuffs(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipLegCuffs called for " + akOriginator.GetDisplayName())
@@ -1134,15 +946,9 @@ EndFunction
 
 Function ExtCmdUnequipBra(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipBra called for " + akOriginator.GetDisplayName())
@@ -1168,15 +974,9 @@ EndFunction
 
 Function ExtCmdUnequipPetSuit(Actor akOriginator, string contextJson, string paramsJson) global
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    UD_API UDAPI_local=Game.GetFormFromFile(0x15D06B, "UnforgivingDevices.esp") as UD_API
+
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-If !UDAPI_local.ActorIsValidForUD(akOriginator)
-return
-EndIf
-UD_CustomDevice_NPCSlot oslot=UDAPI_local.getNPCSlotByActor(akOriginator)
-If !oslot.hasFreeHands(true)
-return
-EndIf
+
 
     zadDeviceLists ddLists = (Game.GetFormFromFile(0x00CA01, "Devious Devices - Expansion.esm") as Quest) as zadDeviceLists
     Debug.Trace("[DeviousStuff] ExtCmdUnequipPetSuit called for " + akOriginator.GetDisplayName())
