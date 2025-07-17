@@ -14,7 +14,13 @@ Actor function GetNearestAdultActor() Global
 EndFunction
 
 function LockDeviceOnActor(Actor akOriginator, string paramsJson, Form inventoryDevice) Global
+    if akOriginator.IsChild()
+        return
+    endif
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
+    if akTarget.IsChild()
+        return
+    endif
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
     Armor deviceInventory=(inventoryDevice as Armor);  
     libs_local.LockDevice(akTarget,deviceInventory,true)
@@ -22,7 +28,9 @@ function LockDeviceOnActor(Actor akOriginator, string paramsJson, Form inventory
 EndFunction
 
 bool Function DDNG_IsEligible(Actor akActor, string contextJson, string paramsJson) global
-
+    if akActor.IsChild()
+        return false
+    endif
     return true;
 EndFunction
 
