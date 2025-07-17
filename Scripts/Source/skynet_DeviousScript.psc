@@ -36,168 +36,168 @@ SkyrimNetApi.RegisterSubCategory("BDSMUNLOCK","unlock something on an actor","sk
            SkyrimNetApi.RegisterAction("ExtCmdUnequipCollar", "Remove a collar on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipCollar_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipCollar", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipBelt", "Remove a Chastity Belt on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBelt_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBelt", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipGag", "Remove a Gag on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipGag_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipGag", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipBinder", "Remove an Armbinder on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBinder_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBinder", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipYoke", "Remove a yoke on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipYoke_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipYoke", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipElbowTie", "Remove an elbow tie on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipElbowTie_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipElbowTie", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipStraitJacket", "Remove a strait jacket on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipStraitJacket_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipStraitJacket", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipCorset", "Remove a corset on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipCorset_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipCorset", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipHood", "Remove a hood on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHood_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHood", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipHobbleSkirt", "Remove a hobble skirt on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHobbleSkirt_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHobbleSkirt", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipGloves", "Remove gloves on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipGloves_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipGloves", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipSuit", "Remove a suit on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipSuit_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipSuit", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipHarness", "Remove a harness on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHarness_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipHarness", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipBlindfold", "Remove a blindfold on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBlindfold_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBlindfold", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipAnkleShackles", "Remove ankle shackles on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipAnkleShackles_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipAnkleShackles", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipClamps", "Remove clamps on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipClamps_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipClamps", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipPlugVaginal", "Remove a vaginal plug on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPlugVaginal_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPlugVaginal", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipPlugAnal", "Remove an anal plug on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPlugAnal_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPlugAnal", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipPiercingsNipple", "Remove nipple piercings on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPiercingsNipple_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPiercingsNipple", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipPiercingsVaginal", "Remove vaginal piercings on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPiercingsVaginal_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPiercingsVaginal", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipArmCuffs", "Remove arm cuffs on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipArmCuffs_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipArmCuffs", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipLegCuffs", "Remove leg cuffs on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipLegCuffs_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipLegCuffs", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipBra", "Remove a bra on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBra_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipBra", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
     
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipPetSuit", "Remove a pet suit on the target actor", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPetSuit_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipPetSuit", \
-                                    "", "PAPYRUS_CUSTOM", \
+                                    "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
 
            SkyrimnetApi.RegisterDecorator("devious_stuff", "skynet_DeviousScript", "DeviousContextDecorator")                 
