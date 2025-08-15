@@ -1,0 +1,81 @@
+{% if worn_has_keyword(npc.UUID, "zad_DeviousYoke") or worn_has_keyword(npc.UUID, "zad_DeviousYokeBB") %}
+     - {{ decnpc(npc.UUID).name }} arms are locked in a yoke a foot to either side of thier head. They can do nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousPlugVaginal") %}
+     - {{ decnpc(npc.UUID).name }} has a plug in thier pussy capable of powerful vibrations. They can not vaginal sex. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousPlugAnal") %}
+     - {{ decnpc(npc.UUID).name }} has a plug in thier ass capable of powerful vibrations. They can not have anal sex.
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousBelt") %} 
+     - {{ decnpc(npc.UUID).name }} has a chastity belt locked over thier genitals. Making it impossible to sexually stimulate thier genitals. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousCollar") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a collar marking them as property. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousPiercingsNipple") %}
+     - {{ decnpc(npc.UUID).name }} is wearing nipple piercings capable of powerful vibration. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousPiercingsVaginal") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a clitoral ring capable of powerful vibration. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousArmCuffs") %}
+     - {{ decnpc(npc.UUID).name }} is arms cuffed. They can do almost nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousCuffsFront") %}
+     - {{ decnpc(npc.UUID).name }} is arms cuffed in front of thier body. They can do almost nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousLegCuffs") %}
+     - {{ decnpc(npc.UUID).name }} is wearing leg cuffs on each leg. It is very difficult to walk and impossible to run.
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousBra") %}
+     - {{ decnpc(npc.UUID).name }}'s breasts are locked under a chastity bra. It is impossible to sexually stimulate thier breasts. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousArmbinder") or worn_has_keyword(npc.UUID, "zad_DeviousArmbinderElbow")%}
+     - {{ decnpc(npc.UUID).name }}'s hands are secured behind thier back by an armbinder, leaving her helpless. They can do nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousArmbinder") %}
+     - {{ decnpc(npc.UUID).name }}'s hands are secured behind thier back by an armbinder, leaving her helpless. They can do nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousElbowTie") %}
+     - {{ decnpc(npc.UUID).name }}'s arms are tied behind her back in a strict elbow tie. This is very painful and makes it impossible to user thier arms. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousPetSuit") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a full-body suit made out of shiny latex (Referred to as Ebonite) leaving nothing to the imagination and very difficult to move. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousStraitJacket") %}
+     - {{ decnpc(npc.UUID).name }}'s arms are secured by a strait jacket. They can not move thier arms or hands at all. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousCorset") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a corset around her waist. It is uncomfortable and hard to take deep breaths. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousHood") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a hood over her head. They can not see or be understood when they speak. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousHobbleSkirt") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a confining hobble-skirt that is restricting her movements. It is uncomfortable, hard to move, and impossible to run. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousGloves") or worn_has_keyword(npc.UUID, "zad_DeviousBondageMittens") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a pair of locking gloves. They can do nothing with thier hands. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousSuit") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a skin tight body-suit. It is hot and uncomfortable. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousGag") or worn_has_keyword(npc.UUID, "zad_DeviousGagLarge") %}
+     - {{ decnpc(npc.UUID).name }} is gagged and drooling. It is hard to breath. Almost no one can hear them, and no one can understand them. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousGagPanel") %}
+     - {{ decnpc(npc.UUID).name }} is gagged with a panel-gag that leaves their tongue exposed and is unable to close their mouth. It is very difficult to speak. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousHarness") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a form-fitting leather harness. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousBlindfold") %}
+     - {{ decnpc(npc.UUID).name }} is blindfolded and cannot see where they are going. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousAnkleShackles") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a set of ankle shackles, restricting their ability to move quickly. 
+{% endif %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousClamps") %}
+     - {{ decnpc(npc.UUID).name }} is wearing a set of painful nipple clamps. 
+{% endif %}
