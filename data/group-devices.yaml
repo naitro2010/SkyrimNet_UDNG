@@ -1,0 +1,53 @@
+- name: piercing
+  devices:
+   - piercingVSoul
+   - piercingNSoul
+
+- name: blindfold 
+  devices:
+   - blindfold
+
+- name: gag 
+  devices: 
+   - gagBall
+   - gagRing
+
+- name: collar 
+  devices: 
+   - harnessCollar
+   - cuffsPaddedCollar
+   - collarPosture
+   - cuffsLeatherCollar
+   - collarRestrictive
+
+- name: arms
+  devices: 
+   - cuffsPaddedArms
+   - cuffsLeatherArms
+   - armbinder
+   - yoke
+
+- name: belt 
+  devices:
+   - beltPadded
+   - beltIron
+
+- name: plugs vaginal
+  devices:
+   - plugIronVag
+   - plugIron    
+   - plugPrimitive
+   - plugInflatable
+   - plugSoulgem
+   - plugPrimitiveVag
+   - plugSoulgemVag
+   - plugInflatableVag
+   - plugChargeableVag
+   - plugTrainingVag
+
+- name: plugs anal
+  devices:
+   - plugIronAn
+   - plugPrimitiveAn
+   - plugSoulgemAn
+   - plugInflatableAn
