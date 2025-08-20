@@ -997,7 +997,6 @@ String Function ddudng_get_devices(Actor akSpeaker) global
 EndFunction
 
 
-
 String Function DeviousContextDecorator(Actor akSpeaker) global
   zadLibs libs=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
   string deviousContext = " "
