@@ -1,18 +1,21 @@
-- name: piercing
+- name: Piercing V.
   devices:
    - piercingVSoul
+
+- name: Piercing N.
+  devices:
    - piercingNSoul
 
-- name: blindfold 
+- name: Blindfold 
   devices:
    - blindfold
 
-- name: gag 
+- name: Gag 
   devices: 
    - gagBall
    - gagRing
 
-- name: collar 
+- name: Collar 
   devices: 
    - harnessCollar
    - cuffsPaddedCollar
@@ -20,32 +23,29 @@
    - cuffsLeatherCollar
    - collarRestrictive
 
-- name: arms
+- name: Arms 
   devices: 
    - cuffsPaddedArms
    - cuffsLeatherArms
    - armbinder
    - yoke
 
-- name: belt 
+- name: Belt 
   devices:
    - beltPadded
    - beltIron
 
-- name: plugs vaginal
+- name: Plug V.
   devices:
    - plugIronVag
-   - plugIron    
-   - plugPrimitive
    - plugInflatable
-   - plugSoulgem
    - plugPrimitiveVag
    - plugSoulgemVag
    - plugInflatableVag
    - plugChargeableVag
    - plugTrainingVag
 
-- name: plugs anal
+- name: Plug A.
   devices:
    - plugIronAn
    - plugPrimitiveAn
