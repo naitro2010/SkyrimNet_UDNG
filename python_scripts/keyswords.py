@@ -1,0 +1,55 @@
+keywords_str = """zad_DeviousPlug
+zad_DeviousBelt
+zad_DeviousBra
+zad_DeviousCollar
+zad_DeviousArmCuffs
+zad_DeviousLegCuffs
+zad_DeviousArmbinder
+zad_DeviousArmbinderElbow
+zad_DeviousHeavyBondage
+zad_DeviousHobbleSkirt
+zad_DeviousHobbleSkirtRelaxed
+zad_DeviousAnkleShackles
+zad_DeviousStraitJacket
+zad_DeviousCuffsFront
+zad_DeviousPetSuit
+zad_DeviousYoke
+zad_DeviousYokeBB
+zad_DeviousCorset
+zad_DeviousClamps
+zad_DeviousGloves
+zad_DeviousHood
+zad_DeviousSuit
+zad_DeviousElbowTie
+zad_DeviousGag
+zad_DeviousGagLarge
+zad_DeviousGagPanel
+zad_DeviousPlugVaginal
+zad_DeviousPlugAnal
+zad_DeviousHarness
+zad_DeviousBlindfold
+zad_DeviousBoots
+zad_Lockable
+zad_DeviousPiercingsNipple
+zad_DeviousPiercingsVaginal
+zad_DeviousBondageMittens
+zad_DeviousPonyGear
+zad_PermitOral
+zad_PermitAnal
+zad_PermitVaginal
+zad_InventoryDevice
+zad_BlockGeneric
+zad_QuestItem 
+zad_BraNoBlockPiercings
+zad_GagNoOpenMouth
+zad_GagCustomExpression
+zad_BoundCombatDisableKick
+zad_NonUniqueKey
+zad_BlockGenericEvents
+zad_ExposedBreasts"""
+keywords = keywords_str.split("\n")
+
+print (f"Keyword[] device_keys = new Keyword[{len(keywords)}]")
+for i,keyword in enumerate(keywords):
+    print (f"device_keys[{i}] = libs.{keyword}")
+

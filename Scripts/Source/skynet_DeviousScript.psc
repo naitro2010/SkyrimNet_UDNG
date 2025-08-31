@@ -7,8 +7,6 @@ bool function SendPapyrusEvent(String content, Actor source, Actor target) Globa
 EndFunction
 
 
-
-
 Actor function GetNearestAdultActor() Global
     return none
 EndFunction

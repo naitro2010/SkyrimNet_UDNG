@@ -1,8 +1,8 @@
-- name: Piercing V.
+- name: Piercing Vaginal
   devices:
    - piercingVSoul
 
-- name: Piercing N.
+- name: Piercing Nipple
   devices:
    - piercingNSoul
 
@@ -35,17 +35,15 @@
    - beltPadded
    - beltIron
 
-- name: Plug V.
+- name: Plug Vaginal
   devices:
    - plugIronVag
    - plugInflatable
    - plugPrimitiveVag
    - plugSoulgemVag
    - plugInflatableVag
-   - plugChargeableVag
-   - plugTrainingVag
 
-- name: Plug A.
+- name: Plug Anal
   devices:
    - plugIronAn
    - plugPrimitiveAn

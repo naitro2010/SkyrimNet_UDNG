@@ -1,26 +1,23 @@
 Scriptname skyrimnet_UDNG_MCM extends SKI_ConfigBase
 
+skyrimnet_UDNG_Groups Property groups Auto
+
 bool player_action_toggle = false
 int player_action_key
 
 bool debug_key_toggle = false
 int debug_key
 
+int options = 0
 String options_page = "options"
-String debug_page = "debug options"
 
 Event OnConfigOpen()
-    Pages = new String[2]
-    pages[0] = options_page
-    pages[1] = debug_page
+    Pages = new String[1]
+    Pages[options] = options_page
 EndEvent 
 
 Event OnPageReset(string page) 
-    if page == options_page 
-        PageOptions() 
-    else
-        PageDebug() 
-    endif 
+    PageOptions() 
 EndEvent 
 
 Function PageOptions() 
@@ -28,9 +25,6 @@ Function PageOptions()
     AddHeaderOption("")
     AddToggleOptionST("PlayerActionKeyToggle","Enable the Player Actions hot key",player_action_toggle)
     AddKeyMapOptionST("PlayerActionKeySet", "Player wear/remove DD on an NPC", player_action_key)
-EndFunction
-
-Function PageDebug() 
     AddHeaderOption("Debug Options")
     AddHeaderOption("")
     AddToggleOptionST("DebugKeyToggle","Debug functions key",debug_key_toggle)
@@ -58,7 +52,7 @@ State PlayerActionKeyToggle
 EndState
 
 State PlayerActionKeySet
-    Event OnKeyMapChangeST(int keyCode, string conflictControl, string conflictName)
+    Event OnKeyMapChangeST(int key_code, string conflictControl, string conflictName)
         bool continue = True
         if conflictControl != "" 
             String msg = None 
@@ -72,7 +66,7 @@ State PlayerActionKeySet
         endif 
         if continue 
             UnregisterForKey(player_action_key)
-            player_action_key = keyCode
+            player_action_key = key_code
             RegisterForKey(player_action_key)
             SetKeymapOptionValueST(player_action_key)
         endif 
@@ -103,7 +97,7 @@ State DebugKeyToggle
 EndState
 
 State DebugKeySet
-    Event OnKeyMapChangeST(int keyCode, string conflictControl, string conflictName)
+    Event OnKeyMapChangeST(int key_code, string conflictControl, string conflictName)
         bool continue = True
         if conflictControl != "" 
             String msg = None 
@@ -117,7 +111,7 @@ State DebugKeySet
         endif 
         if continue 
             UnregisterForKey(debug_key)
-            debug_key = keyCode
+            debug_key = key_code
             RegisterForKey(debug_key)
             SetKeymapOptionValueST(debug_key)
         endif 
@@ -137,10 +131,18 @@ Event OnKeyDown(int key_code)
     if key_code == player_action_key
         Actor target = Game.GetCurrentCrosshairRef() as Actor 
         if target == None 
-            Debug.Notification("A actor was not found in the crosshairs")
+            Trace("OnKeyDown: A actor was not found in the crosshairs")
             return 
         endif 
 
-        skyrimnet_UDNG_PlayerActions.ChangeDevices(target)
+;        skyrimnet_UDNG_Groups groups = (self as Quest) as skyrimnet_UDNG_Groups
+        groups.UpdateDevices(target)
     endif 
 EndEvent 
+
+Function Trace(String msg, bool notification=false) 
+    if notification 
+        Debug.Notification(msg) 
+    endif 
+    Debug.Trace("[skyrimnet_UDNG_MCM] "+msg) 
+EndFunction 

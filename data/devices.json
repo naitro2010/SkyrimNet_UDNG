@@ -1,604 +1,362 @@
 [
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x435d",
-    "formId": 302007133,
-    "id": "beltPaddedRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable chastity belt made out of metal with a soft inner padding.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x9a7b",
     "formId": 318806651,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x9a7b",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x435d",
     "id": "beltPadded",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3330",
     "Name": "Steel Chastity Belt (Padded)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x435e",
-    "formId": 302007134,
-    "id": "beltIronRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable chastity belt made out of sturdy iron.",
-    "Form": "__formData|Devious Devices - Integration.esm|0xeb5d",
     "formId": 318827357,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0xeb5d",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x435e",
     "id": "beltIron",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3330",
     "Name": "Iron Chastity Belt"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c7",
-    "formId": 302008519,
-    "id": "plugIronRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of iron plugs for female orifices meant to be used with a chastity belt to hold them in.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x17757",
     "formId": 318863191,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x17757",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c7",
     "id": "plugIron",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3331",
     "Name": "Plug (Iron) (Set)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c8",
-    "formId": 302008520,
-    "id": "plugPrimitiveRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of primitive plugs for female orifices meant to be used with a chastity belt to hold them in.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x19d16",
     "formId": 318872854,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x19d16",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c8",
     "id": "plugPrimitive",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3331",
     "Name": "Plug (Primitive) (Set)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c9",
-    "formId": 302008521,
-    "id": "plugInflatableRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of inflatable plugs for female orifices meant to be used with a chastity belt to hold them in.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x19d17",
     "formId": 318872855,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x19d17",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c9",
     "id": "plugInflatable",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3331",
     "Name": "Plug (Inflatable) (Set)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48ca",
-    "formId": 302008522,
-    "id": "plugSoulgemRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of common soul gem plugs for female orifices meant to be used with a chastity belt to hold them in.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x19d18",
     "formId": 318872856,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x19d18",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48ca",
     "id": "plugSoulgem",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3331",
     "Name": "Plug (Soulgem) (Set)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c2",
-    "formId": 302008514,
-    "id": "braPaddedRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable chastity bra made out of metal with a soft inner padding.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x1775a",
     "formId": 318863194,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x1775a",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c2",
     "id": "braPadded",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3dfa",
     "Name": "Steel Chastity Bra (Padded)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration..",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c3",
-    "formId": 302008515,
-    "id": "cuffsPaddedArmsRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of metal arm and wrist cuffs with soft leather padding.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x1775b",
     "formId": 318863195,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x1775b",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c3",
     "id": "cuffsPaddedArms",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df9",
     "Name": "Steel Cuffs (Padded) (Arms)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c5",
-    "formId": 302008517,
-    "id": "cuffsPaddedLegsRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of metal leg and ankle cuffs with soft leather padding.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x1775d",
     "formId": 318863197,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x1775d",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c5",
     "id": "cuffsPaddedLegs",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df8",
     "Name": "Steel Cuffs (Padded) (Legs)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c6",
-    "formId": 302008518,
-    "id": "cuffsPaddedCollarRendered",
-    "Name": ""
-  },
-  {
     "description": "A metal collar with soft leather padding.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x1775c",
     "formId": 318863196,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x1775c",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c6",
     "id": "cuffsPaddedCollar",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Steel Collar (Padded)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c4",
-    "formId": 302008516,
-    "id": "cuffsPaddedCompleteRendered",
-    "Name": ""
-  },
-  {
     "description": "A complete set of padded metal cuffs for all extremities.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x1775e",
     "formId": 318863198,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x1775e",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c4",
     "id": "cuffsPaddedComplete",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df9",
     "Name": "Steel Cuffs (Padded) (Set)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x48c1",
-    "formId": 302008513,
-    "id": "collarPostureRendered",
-    "Name": ""
-  },
-  {
     "description": "A steel collar meant to ensure proper posture by covering the whole neck.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x17759",
     "formId": 318863193,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x17759",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x48c1",
     "id": "collarPosture",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Steel Collar (Padded) (Posture)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0xca38",
-    "formId": 302041656,
-    "id": "armbinderRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable armbinder made out of leather, with sturdy reinforcing straps.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x28a5a",
     "formId": 318933594,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x28a5a",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0xca38",
     "id": "armbinder",
+    "Keyword": "__formData|Devious Devices - Integration.esm|0x5226c",
     "Name": "Black Leather Armbinder"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x68bdf",
-    "formId": 319196127,
-    "id": "zad_armBinderHisec_Rendered",
-    "Name": ""
-  },
-  {
-    "description": "This armbinder binds the subject's arms tightly together and is additionally secured with padlocks, making this device very difficult to escape.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x68bde",
-    "formId": 319196126,
-    "id": "zad_armBinderHisec_Inventory",
-    "Name": "High Security Armbinder"
-  },
-  {
     "description": "A lockable head harness that forces a wooden ball between the wearer's lips and makes speaking impossible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x2b073",
     "formId": 318943347,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x2b073",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0xf564",
     "id": "gagBall",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x7eb8",
     "Name": "Black Leather Gag (Ball) (Harness)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0xf564",
-    "formId": 302052708,
-    "id": "gagBallRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable head harness that covers the wearer's lips with a leather panel and makes speaking impossible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x2b075",
     "formId": 318943349,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x2b075",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0xf566",
     "id": "gagPanel",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x7eb8",
     "Name": "Black Leather Gag (Panel) (Harness)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0xf566",
-    "formId": 302052710,
-    "id": "gagPanelRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable head harness that forces a metal ring between the wearer's teeth and makes speaking impossible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x2b076",
     "formId": 318943350,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x2b076",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0xf565",
     "id": "gagRing",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x7eb8",
     "Name": "Black Leather Gag (Ring) (Harness)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0xf565",
-    "formId": 302052709,
-    "id": "gagRingRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable gag that forces a wooden ball between the wearer's lips and makes speaking impossible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x34253",
     "formId": 318980691,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x34253",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x1614d",
     "id": "gagStrapBall",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x7eb8",
     "Name": "Black Leather Gag (Ball) (Simple)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x1614d",
-    "formId": 302080333,
-    "id": "gagStrapBallRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable gag that forces a metal ring between the wearer's teeth and makes speaking impossible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x34255",
     "formId": 318980693,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x34255",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x16154",
     "id": "gagStrapRing",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x7eb8",
     "Name": "Black Leather Gag (Ring) (Simple)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x16154",
-    "formId": 302080340,
-    "id": "gagStrapRingRendered",
-    "Name": ""
-  },
-  {
     "description": "A leather blindfold that covers the eyes and plunges the wearer into darkness.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c6f",
     "formId": 318970991,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c6f",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x11b1e",
     "id": "blindfold",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x11b1a",
     "Name": "Black Leather Blindfold"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x11b1e",
-    "formId": 302062366,
-    "id": "blindfoldRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of leather arm cuffs.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x32744",
     "formId": 318973764,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x32744",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x1c7f0",
     "id": "cuffsLeatherArms",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df9",
     "Name": "Black Leather Cuffs (Arms)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x1c7f0",
-    "formId": 302106608,
-    "id": "cuffsLeatherArmsRendered",
-    "Name": ""
-  },
-  {
     "description": "A set of leather leg cuffs.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x32743",
     "formId": 318973763,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x32743",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x1c7f3",
     "id": "cuffsLeatherLegs",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df8",
     "Name": "Black Leather Cuffs (Legs)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x1c7f3",
-    "formId": 302106611,
-    "id": "cuffsLeatherLegsRendered",
-    "Name": ""
-  },
-  {
     "description": "A leather collar with metal studs and rings.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x32745",
     "formId": 318973765,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x32745",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x1c7f1",
     "id": "cuffsLeatherCollar",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Black Leather Collar"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x1c7f1",
-    "formId": 302106609,
-    "id": "cuffsLeatherCollarRendered",
-    "Name": ""
-  },
-  {
     "description": "An intricate harness made up of multiple metal rings and leather straps. This variant leaves the subject's private areas exposed for display and ease of access.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c74",
     "formId": 318970996,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c74",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x17c44",
     "id": "harnessBody",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x17c43",
     "Name": "Black Leather Slave Harness"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x17c44",
-    "formId": 302087236,
-    "id": "harnessBodyRendered",
-    "Name": ""
-  },
-  {
     "description": "A sturdy leather collar with a metal ring attached at the front.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c75",
     "formId": 318970997,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c75",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x16155",
     "id": "harnessCollar",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Black Leather Collar (Harness)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x16155",
-    "formId": 302080341,
-    "id": "harnessCollarRendered",
-    "Name": ""
-  },
-  {
     "description": "A leather collar meant to ensure proper posture by covering the whole neck.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x47002",
     "formId": 319057922,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x47002",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x2b508",
     "id": "collarPostureLeather",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Black Leather Collar (Posture)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x2b508",
-    "formId": 302167304,
-    "id": "collarPostureLeatherRendered",
-    "Name": ""
-  },
-  {
     "description": "An iron vaginal plug capable of providing a moderate amount of sexual stimulation to the wearer.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31703",
     "formId": 318969603,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31703",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c7c",
     "id": "plugIronVag",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7c",
     "Name": "Plug (Iron) (Vaginal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c7c",
-    "formId": 302091388,
-    "id": "plugIronVagRendered",
-    "Name": ""
-  },
-  {
     "description": "An iron anal plug that fills the wearer with a profound sense of fullness.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31704",
     "formId": 318969604,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31704",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c7b",
     "id": "plugIronAn",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7d",
     "Name": "Plug (Iron) (Anal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c7b",
-    "formId": 302091387,
-    "id": "plugIronAnRendered",
-    "Name": ""
-  },
-  {
     "description": "A primitive vaginal plug capable of providing a decent amount of sexual stimulation to the wearer.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c68",
     "formId": 318970984,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c68",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c7e",
     "id": "plugPrimitiveVag",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7c",
     "Name": "Plug (Primitive) (Vaginal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c7e",
-    "formId": 302091390,
-    "id": "plugPrimitiveVagRendered",
-    "Name": ""
-  },
-  {
     "description": "A primitive anal plug that fills the wearer with a profound sense of fullness.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c69",
     "formId": 318970985,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c69",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c7d",
     "id": "plugPrimitiveAn",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7d",
     "Name": "Plug (Primitive) (Anal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c7d",
-    "formId": 302091389,
-    "id": "plugPrimitiveAnRendered",
-    "Name": ""
-  },
-  {
     "description": "A soul gem vaginal plug capable of providing a great amount of sexual stimulation to the wearer.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c6c",
     "formId": 318970988,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c6c",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c83",
     "id": "plugSoulgemVag",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7c",
     "Name": "Plug (Soulgem) (Vaginal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c83",
-    "formId": 302091395,
-    "id": "plugSoulgemVagRendered",
-    "Name": ""
-  },
-  {
     "description": "A soul gem anal plug that fills the wearer with a profound sense of fullness.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x31c6b",
     "formId": 318970987,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x31c6b",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c82",
     "id": "plugSoulgemAn",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7d",
     "Name": "Plug (Soulgem) (Anal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c82",
-    "formId": 302091394,
-    "id": "plugSoulgemAnRendered",
-    "Name": ""
-  },
-  {
     "description": "An inflatable vaginal plug capable of providing a great amount of sexual stimulation to the wearer.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x33cee",
     "formId": 318979310,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x33cee",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c81",
     "id": "plugInflatableVag",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7c",
     "Name": "Plug (Inflatable) (Vaginal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c81",
-    "formId": 302091393,
-    "id": "plugInflatableVagRendered",
-    "Name": ""
-  },
-  {
     "description": "An inflatable anal plug that fills the wearer with a profound sense of fullness.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x33ced",
     "formId": 318979309,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x33ced",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x18c80",
     "id": "plugInflatableAn",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x1dd7d",
     "Name": "Plug (Inflatable) (Anal)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x18c80",
-    "formId": 302091392,
-    "id": "plugInflatableAnRendered",
-    "Name": ""
-  },
-  {
     "description": "A lockable chastity belt made out of metal with a soft inner padding. A hole at the rear makes long term wear possible.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x32741",
     "formId": 318973761,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x32741",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x12083",
     "id": "beltPaddedOpen",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3330",
     "Name": "Steel Chastity Belt (Padded) (Open)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x12083",
-    "formId": 302063747,
-    "id": "beltPaddedOpenRendered",
-    "Name": ""
-  },
-  {
-    "description": "A chargeable soulgem plug for female orifices.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x2bb53",
-    "formId": 318946131,
-    "id": "plugChargeableVag",
-    "Name": "Plug (Soulgem) (Chargeable)"
-  },
-  {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x382f6",
-    "formId": 318997238,
-    "id": "plugChargeableRenderedVag",
-    "Name": ""
-  },
-  {
-    "description": "A soulgem vaginal plug capable of providing a great amount of sexual stimulation to the wearer, ",
-    "Form": "__formData|Devious Devices - Integration.esm|0x3c3a0",
-    "formId": 319013792,
-    "id": "plugTrainingVag",
-    "Name": "Plug (Training) (Vaginal)"
-  },
-  {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x3c3a1",
-    "formId": 319013793,
-    "id": "plugTrainingRenderedVag",
-    "Name": ""
-  },
-  {
     "description": "A stiff and rigid leather collar intended to severely restrict head movement once secured around the wearer's neck.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x4dbef",
     "formId": 319085551,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x4dbef",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x2afa5",
     "id": "collarRestrictive",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x3df7",
     "Name": "Black Leather Restrictive Collar"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x2afa5",
-    "formId": 302165925,
-    "id": "collarRestrictiveRendered",
-    "Name": ""
-  },
-  {
     "description": "A tight leather corset that hugs the wearer's waist while leaving the breasts exposed.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x4dbf0",
     "formId": 319085552,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x4dbf0",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x28f53",
     "id": "corset",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x27f28",
     "Name": "Black Leather Restrictive Corset"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x28f53",
-    "formId": 302157651,
-    "id": "corsetRendered",
-    "Name": ""
-  },
-  {
     "description": "A pair of long leather gloves with locks and metal restraints.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x4dbec",
     "formId": 319085548,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x4dbec",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x27f27",
     "id": "glovesRestrictive",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x2afa1",
     "Name": "Black Leather Restrictive Gloves"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x27f27",
-    "formId": 302153511,
-    "id": "glovesRestrictiveRendered",
-    "Name": ""
-  },
-  {
     "description": "A metal yoke that spreads the wearer's arms and holds them securely in place.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x4f18c",
     "formId": 319091084,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x4f18c",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x26991",
     "id": "yoke",
+    "Keyword": "__formData|Devious Devices - Integration.esm|0x5226c",
     "Name": "Iron Yoke"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x26991",
-    "formId": 302147985,
-    "id": "yokeRendered",
-    "Name": ""
-  },
-  {
     "description": "A delicate piercing with a soul gem fragment attached.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x47566",
     "formId": 319059302,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x47566",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x243d6",
     "id": "piercingVSoul",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0x23e70",
     "Name": "Genital Piercing (Soul Gem)"
   },
   {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x243d6",
-    "formId": 302138326,
-    "id": "piercingVSoulRendered",
-    "Name": ""
-  },
-  {
     "description": "A pair of delicate nipple piercings with soul gem fragments attached.",
-    "Form": "__formData|Devious Devices - Integration.esm|0x409a2",
     "formId": 319031714,
+    "formInventory": "__formData|Devious Devices - Integration.esm|0x409a2",
+    "formRendered": "__formData|Devious Devices - Assets.esm|0x23e71",
     "id": "piercingNSoul",
+    "Keyword": "__formData|Devious Devices - Assets.esm|0xca39",
     "Name": "Jeweled Piercings (Nipples) (Soulgem)"
-  },
-  {
-    "description": "Item reference reserved for scripts interaction. This should not appear in your inventory. Check your Devious Devices mod configuration.",
-    "Form": "__formData|Devious Devices - Assets.esm|0x23e71",
-    "formId": 302136945,
-    "id": "piercingNSoulRendered",
-    "Name": ""
   }
 ]

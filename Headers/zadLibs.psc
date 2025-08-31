@@ -185,3 +185,12 @@ EndFunction
 ; Retrieves a random inventory device with the given keyword, returns none if no devices are available
 Armor Function GetGenericDeviceByKeyword(Keyword kw)
 EndFunction
+
+; Returns 0 if the actor is not wearing a device of this type, 1 if she is wearing
+; that specific device, or 2 if she's wearing another device of the same type.
+int Function IsWearingDevice(actor akActor, armor deviceRendered, keyword zad_DeviousDevice)
+EndFunction 
+
+; Retrieves device keyword for a given inventory device
+Keyword Function GetDeviceKeyword(armor device)
+EndFunction

@@ -34,7 +34,7 @@ def group_parse(fname, device_info):
                 if name in device_info:
                     group['devices'][i] = device_info[name]
                 else: 
-                    print ("failed to find name")
+                    print ("failed to find name:"+name)
 
     return groups
         
