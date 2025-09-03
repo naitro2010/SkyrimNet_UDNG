@@ -30,15 +30,14 @@ EndFunction
 
 Function UpdateDevices(Actor target) 
     String[] style_buttons = Utility.CreateStringArray(style_cancel + 1) 
-    style_buttons[style_forcefully] = "Forcefully"
-    style_buttons[style_normally] = "Normally"
-    style_buttons[style_gently] = "Gently"
+    style_buttons[style_forcefully] = "Forcefully by player"
+    style_buttons[style_normally] = "by player"
+    style_buttons[style_gently] = "Gently by player "
     style_buttons[style_silently] = "(Silently)"
     style_buttons[style_cancel] = "Cancel"
 
-    String msg = "How does "+player.getDisplayName() \
-        +" change "+target.getDisplayName()+"'s' devices: \n" \
-        +" or (Silently) with no message to LLM." 
+    String msg = "How does "+target.getDisplayName() +" change devices: \n" \
+        +" (Silently) with no message to LLM." 
     int style = SkyMessage.ShowArray(msg, style_buttons, getIndex = true) as int 
     if style == style_cancel 
         return 

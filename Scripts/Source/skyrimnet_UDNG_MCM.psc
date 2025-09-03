@@ -25,10 +25,10 @@ Function PageOptions()
     AddHeaderOption("")
     AddToggleOptionST("PlayerActionKeyToggle","Enable the Player Actions hot key",player_action_toggle)
     AddKeyMapOptionST("PlayerActionKeySet", "Player wear/remove DD on an NPC", player_action_key)
-    AddHeaderOption("Debug Options")
-    AddHeaderOption("")
-    AddToggleOptionST("DebugKeyToggle","Debug functions key",debug_key_toggle)
-    AddKeyMapOptionST("DebugKeySet", "Ability to call the LLM Actions Fuctions", debug_key)
+    ;AddHeaderOption("Debug Options")
+    ;AddHeaderOption("")
+    ;AddToggleOptionST("DebugKeyToggle","Debug functions key",debug_key_toggle)
+    ;AddKeyMapOptionST("DebugKeySet", "Ability to call the LLM Actions Fuctions", debug_key)
 EndFunction
 
 ; --------------------------------------------
