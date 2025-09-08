@@ -10,23 +10,11 @@
 {% if contains(devices,"beltIron") or contains(devices,"beltPadded") %}
      - {{ decnpc(npc.UUID).name }} has a heavy chastity belt locked over thier genitals. Making it impossible to sexually stimulate thier genitals or ass. 
 {% endif %}
-{% if contains(devices,"plugSoulGemVag") %}
-     - {{ decnpc(npc.UUID).name }} has a plug in thier pussy capable of powerful vibrations.
-{% endif %}
-{% if contains(devices,"plugSoulGemAn") %}
-     - {{ decnpc(npc.UUID).name }} has a plug in thier ass capable of powerful vibrations.
-{% endif %}
-{% if contains(devices,"plugInflatableAn") %} 
-     - {{ decnpc(npc.UUID).name }} has a plug in thier ass capable of inflating. They can not have anal sex.
-{% endif %}
 {% if contains(devices,"cuffsPaddedArms") %} 
      - {{ decnpc(npc.UUID).name }}'s arms are cuffed. They can only move thier hands a small amount.
 {% endif %}
 {% if contains(devices,"cuffsPaddedLegs") %}
      - {{ decnpc(npc.UUID).name }} is wearing leg cuffs on each leg. It is very difficult to walk and impossible to run.
-{% endif %}
-{% if worn_has_keyword(npc.UUID, "zad_DeviousBra") %}
-     - {{ decnpc(npc.UUID).name }}'s breasts are locked under a chastity bra. It is impossible to sexually stimulate thier breasts. 
 {% endif %}
 {% if worn_has_keyword(npc.UUID, "zad_DeviousElbowTie") %}
      - {{ decnpc(npc.UUID).name }}'s arms are tied behind her back in a strict elbow tie. This is very painful and makes it impossible to user thier arms. 
@@ -60,8 +48,5 @@
 {% endif %}
 {% if worn_has_keyword(npc.UUID, "zad_DeviousAnkleShackles") %}
      - {{ decnpc(npc.UUID).name }} is wearing a set of ankle shackles, restricting their ability to move quickly. 
-{% endif %}
-{% if worn_has_keyword(npc.UUID, "zad_DeviousClamps") %}
-     - {{ decnpc(npc.UUID).name }} is wearing a set of painful nipple clamps. 
 {% endif %}
 {% endif %} 
