@@ -1,6 +1,115 @@
 Scriptname skyrimnet_UDNG_PlayerAlias extends ReferenceAlias
-
+bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
+    float currentTime=Utility.GetCurrentRealTime()
+    If JsonUtil.HasFloatValue("DirectTime","LastEventTime")
+        if (JsonUtil.GetFloatValue("DirectTime","LastEventTime") > currentTime)
+            JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)		
+	    Else
+            if (JsonUtil.GetFloatValue("DirectTime","LastEventTime")+30.0 < (currentTime))
+                JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)
+                SkyrimNetApi.DirectNarration(content,source,target)
+            Else
+                If source == none
+                    SkyrimNetApi.RegisterShortLivedEvent("UDNG"+currentTime,"DDUDNG",content,"",60000,source,target)
+                Else
+                    SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"UDNG"+currentTime,"DDUDNG",content,"",60000,source,target)
+                EndIf
+                
+            EndIf
+        EndIf
+    Else
+        JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)    
+        SkyrimNetApi.DirectNarration(content,source,target)
+    EndIf
+    
+EndFunction
 Event OnPlayerLoadGame()
     skynet_DeviousScript.RegisterDeviousActions()
-    skynet_DeviousScript.RegisterDeviousDecorators()
+    RegisterForModEvent("DeviceActorOrgasm", "OnOrgasm")
+    RegisterForModEvent("UDEvent_DeviceLocked","DeviceLockedEvent")
+    RegisterForModEvent("UDEvent_DeviceUnlocked","DeviceUnlockedEvent")
+    RegisterForModEvent("UDEvent_DeviceMinigameBegin","OnStartMinigame")
+    RegisterForModEvent("UDEvent_DeviceMinigameEnd","OnStopMinigame")
+    RegisterForModEvent("UDEvent_VibDeviceEffectStart","OnVibrateStart")
+    RegisterForModEvent("UDEvent_VibDeviceEffectUpdate","OnVibrateUpdate")
+    RegisterForModEvent("UDEvent_VibDeviceEffectEnd","OnVibrateStop")
+EndEvent
+Event OnVibrateStart(String source, Form WearerF, Form Inv, Form Render,int zones,int baseStrength,int currentStrength)
+    Actor Wearer = WearerF as Actor
+    SendPapyrusEvent(Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+" starts vibrating.",Wearer,none)
+EndEvent
+Event OnVibrateUpdate(String source, Form WearerF, Form Inv, Form Render,int zones,int baseStrength,int currentStrength,bool paused)
+EndEvent
+Event OnVibrateStop(String source, Form WearerF, Form Inv, Form Render,int zones,int baseStrength)
+    Actor Wearer = WearerF as Actor
+    SendPapyrusEvent(Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+" stops vibrating.",Wearer,none)
+EndEvent
+Event DeviceLockedEvent(String source,Form WearerF,Form Inv,Form Render)
+    Actor Wearer = WearerF as Actor
+    SendPapyrusEvent(Wearer.GetActorBase().GetName()+" had a "+Inv.getName()+" locked on them.",Wearer,none)   
+EndEvent
+Event DeviceUnlockedEvent(String source,Form WearerF,Form Inv,Form Render)
+    Actor Wearer = WearerF as Actor
+    SendPapyrusEvent(Wearer.GetActorBase().GetName()+" had a "+Inv.getName()+" unlocked from them.",Wearer,none)   
+EndEvent
+Event OnStartMinigame(String source,Form WearerF,Form HelperF,String minigame,float durability, Form Inv,Form Render)
+    Actor Wearer = WearerF as Actor
+    Actor Helper = HelperF as Actor
+    If StringUtil.Find(minigame,"Struggle") != -1
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" starts struggling to escape from their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" starts struggling to help "+Wearer.GetActorBase().GetName()+" escape from their "+Inv.getName()+".",Wearer,none)
+        EndIf
+    EndIf
+    If StringUtil.Find(minigame,"Lockpick") != -1
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" starts picking the lock on their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" starts picking the lock on "+Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+".",Wearer,none)
+        EndIf
+    EndIf
+    If StringUtil.Find(minigame,"Cutting") != -1
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" starts trying to cut off their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" starts trying to cut off "+Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+".",Wearer,none)
+        EndIf
+    EndIf
+    If StringUtil.Find(minigame,"KeyUnlock") != -1
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" starts trying to unlock their "+Inv.getName()+" with a key.",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" starts trying to unlock "+Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+" with a key.",Wearer,none)
+        EndIf
+    EndIf
+    If StringUtil.Find(minigame,"RepairLock") != -1
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" starts trying to repair the jammed lock on their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" starts trying to repair the jammed lock on "+Wearer.GetActorBase().GetName()+"'s "+Inv.getName()+".",Wearer,none)
+        EndIf
+    EndIf
+EndEvent
+Event OnStopMinigame(String source,Form WearerF,Form HelperF,String minigame,float durability,bool isUnlocked,Form Inv,Form Render)
+    Actor Wearer = WearerF as Actor
+    Actor Helper = HelperF as Actor
+    If isUnlocked
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" finally escaped from their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" finally helped "+Wearer.GetActorBase().GetName()+" escape from their "+Inv.getName()+".",Wearer,none)
+        EndIf
+    Else
+        If helper==none 
+            SendPapyrusEvent(Wearer.GetActorBase().GetName()+" failed to escape from their "+Inv.getName()+".",Wearer,none)
+        Else
+            SendPapyrusEvent(Helper.GetActorBase().GetName()+" failed to help "+Wearer.GetActorBase().GetName()+" escape from their "+Inv.getName()+".",Wearer,none)
+        EndIf
+
+    EndIf
+
+EndEvent
+Event OnOrgasm(string eventName, string strArg, float numArg, Form sender)
+    SendPapyrusEvent(strArg+" is cumming!",none,none)
 EndEvent
