@@ -58,7 +58,7 @@ Function RegisterDeviousActions(skyrimnet_UDNG_MCM mcm) global
 
     SkyrimNetApi.RegisterSubCategory("BDSMUNLOCK","unlock something on an actor","skynet_DeviousScript","DDNG_IsEligible","",1,"","UNEQUIP")
 
-           SkyrimNetApi.RegisterAction("ExtCmdUnequipCollar", "Remove a collar on the target actor"+refinement+refinement, \
+           SkyrimNetApi.RegisterAction("ExtCmdUnequipCollar", "Remove a collar on the target actor"+refinement, \
                                     "skynet_DeviousScript", "ExtCmdUnequipCollar_IsEligible", \
                                     "skynet_DeviousScript", "ExtCmdUnequipCollar", \
                                     "", "PAPYRUS_NESTED_ACTION", \
