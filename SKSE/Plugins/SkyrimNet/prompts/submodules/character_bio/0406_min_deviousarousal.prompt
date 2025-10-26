@@ -1,0 +1,24 @@
+{# Detailed arousal state - only shown in internal perspectives #}
+{% if show_internal %}
+{{ "### Arousal State" }}
+
+{% if arousal_state == "not_aroused" %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} shows no signs of sexual arousal. His breathing is steady, genitals relaxed, and demeanor composed.
+  {% else %}
+- {{ actor_name }} shows no signs of sexual arousal. Her breathing is steady, body unresponsive to stimulation, expression neutral.
+  {% endif %}
+{% else if arousal_state == "moderately_aroused" %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} experiences moderate arousal. His cock has begun to harden, breathing deepens, and a light flush appears on his skin.
+  {% else %}
+- {{ actor_name }} experiences moderate arousal. Her nipples have stiffened, breathing occasionally catches, and lubrication has begun.
+  {% endif %}
+{% else %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} is intensely aroused. His cock stands rigidly erect and leaking, breathing heavy, muscles tense. His expression reveals raw hunger.
+  {% else %}
+- {{ actor_name }} is intensely aroused. Her nipples are painfully erect, sex swollen and dripping, breathing ragged. Her thighs tremble and her eyes show desperate need.
+  {% endif %}
+{% endif %}
+{% endif %}

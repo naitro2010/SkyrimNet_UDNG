@@ -1,0 +1,13 @@
+{% if not isTimePaused %}
+{% set actor_name = decnpc(npc.UUID).name %}
+{% if triggeringEvent and triggeringEvent.type == "direct_narration" %}
+{% else %}
+{% if worn_has_keyword(npc.UUID, "zad_DeviousGag") %}
+- {{ actor_name }} is gagged. Speech is blocked. Convert words to muffled sounds and mumbling of similar length.
+{% endif %}
+{% if worn_has_keyword(player.UUID, "zad_DeviousGag") %}
+- {{ player.name }} is gagged. {{ actor_name }} should pretend anything {{ player.name }} says is ONLY muffled sounds and mumbling, and can't understand them. This is VERY important for immersion.
+{% endif %}
+{% endif %}
+{% endif %}
+{% endif %}

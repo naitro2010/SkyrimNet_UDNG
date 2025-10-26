@@ -1,0 +1,38 @@
+{# Vibration device status #}
+{% if has_vibrators %}
+{{ "### Vibration Status" }}
+
+{% if vibrators_active %}
+  {% if show_internal %}
+    {% if arousal_state == "not_aroused" %}
+      {% if actor_gender == "male" %}
+- Vibrating devices locked on or inside {{ actor_name }}'s body are currently active. Despite the stimulation, he maintains composure, though involuntary twitches betray his struggle.
+      {% else %}
+- Vibrating devices locked on or inside {{ actor_name }}'s body are currently active. Despite the stimulation, she maintains composure, though involuntary twitches betray her struggle.
+      {% endif %}
+    {% else if arousal_state == "moderately_aroused" %}
+      {% if actor_gender == "male" %}
+- Active vibrators stimulate {{ actor_name }}'s body. His muscles tense sporadically, breathing becomes uneven, and he occasionally bites his lip to suppress involuntary sounds.
+      {% else %}
+- Active vibrators stimulate {{ actor_name }}'s body. Her muscles tense sporadically, breathing becomes uneven, and she occasionally bites her lip to suppress involuntary sounds.
+      {% endif %}
+    {% else %}
+      {% if actor_gender == "male" %}
+- Relentless vibrations from devices on and inside {{ actor_name }}'s body drive him toward the edge of control. His entire body trembles, cock leaking heavily, eyes unfocused as uncontrolled moans escape.
+      {% else %}
+- Relentless vibrations from devices on and inside {{ actor_name }}'s body drive her toward the edge of control. Her entire body trembles, fluids running down her thighs, eyes unfocused as uncontrolled moans escape.
+      {% endif %}
+    {% endif %}
+  {% else %}
+- {{ actor_name }}'s body occasionally twitches and trembles. A faint mechanical buzzing is audible, indicating active vibrating devices.
+  {% endif %}
+{% else %}
+  {% if show_internal %}
+    {% if actor_gender == "male" %}
+- Vibrating devices on or inside {{ actor_name }}'s body are currently inactive. Though silent now, they could be activated remotely at any moment.
+    {% else %}
+- Vibrating devices on or inside {{ actor_name }}'s body are currently inactive. Though silent now, they could be activated remotely at any moment.
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% endif %}

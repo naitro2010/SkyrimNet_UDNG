@@ -1,0 +1,25 @@
+{# Overall restraint assessment #}
+{% if worn_has_keyword(actorUUID, "zad_Lockable") %}
+{{ "### Restraint Summary" }}
+
+{% set restraint_count = 0 %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousYoke") %}{% set restraint_count = restraint_count + 1 %}{% endif %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousArmbinder") %}{% set restraint_count = restraint_count + 1 %}{% endif %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousGag") %}{% set restraint_count = restraint_count + 1 %}{% endif %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousBlindfold") %}{% set restraint_count = restraint_count + 1 %}{% endif %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousHeavyBondage") %}{% set restraint_count = restraint_count + 2 %}{% endif %}
+
+{% if restraint_count >= 3 %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} is thoroughly restrained and helpless. His mobility is severely restricted with little ability to resist.
+  {% else %}
+- {{ actor_name }} is thoroughly restrained and helpless. Her mobility is severely restricted with little ability to resist.
+  {% endif %}
+{% else if restraint_count > 0 %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} is partially restrained, limiting his freedom and defensive capability.
+  {% else %}
+- {{ actor_name }} is partially restrained, limiting her freedom and defensive capability.
+  {% endif %}
+{% endif %}
+{% endif %}

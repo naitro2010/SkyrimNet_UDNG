@@ -1,0 +1,79 @@
+{% if render_mode == "full" or render_mode == "thoughts" or render_mode == "transform" %}
+
+{{ "### Survival Needs" }}
+
+{# Pronoun helpers (examples):
+   {{ capitalize(decnpc(actorUUID).objective_pronoun) }} → Her/Him
+   {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} → She/He
+   {{ capitalize(decnpc(actorUUID).possessive_pronoun) }} → Hers/His
+#}
+
+{# ----------------------------- WARMTH ----------------------------- #}
+{% if
+  has_magic_effect(actorUUID, "Survival_ColdStage0DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ColdStage1DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ColdStage2DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ColdStage3DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ColdStage4DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ColdStage5DisplayEffect")
+%}
+{{ "#### Warmth" }}
+{% if has_magic_effect(actorUUID, "Survival_ColdStage0DisplayEffect") %}
+{{ decnpc(actorUUID).name }} feels pleasantly warm. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} is comfortable and unbothered by the cold.
+{% else if has_magic_effect(actorUUID, "Survival_ColdStage1DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is comfortable. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} remains steady despite the chill.
+{% else if has_magic_effect(actorUUID, "Survival_ColdStage2DisplayEffect") %}
+{{ decnpc(actorUUID).name }} feels a chill. A fire, cloak, or warmer clothes would help {{ decnpc(actorUUID).objective_pronoun }} soon.
+{% else if has_magic_effect(actorUUID, "Survival_ColdStage3DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is very cold. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} moves more slowly and acts cautiously.
+{% else if has_magic_effect(actorUUID, "Survival_ColdStage4DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is freezing. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} shivers and urgently seeks shelter.
+{% else if has_magic_effect(actorUUID, "Survival_ColdStage5DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is numb from the cold. Survival takes priority over everything for {{ decnpc(actorUUID).objective_pronoun }} now.
+{% endif %}
+{% endif %}
+
+{# ----------------------------- HUNGER ----------------------------- #}
+{{ "#### Hunger" }}
+{% if has_magic_effect(actorUUID, "Survival_HungerStage2DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is peckish. A small meal would help {{ decnpc(actorUUID).objective_pronoun }} focus.
+{% else if has_magic_effect(actorUUID, "Survival_HungerStage3DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is hungry. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} grows distracted and watches for food.
+{% else if has_magic_effect(actorUUID, "Survival_HungerStage4DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is famished. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} feels irritable and light-headed—food is a priority for {{ decnpc(actorUUID).objective_pronoun }}.
+{% else if has_magic_effect(actorUUID, "Survival_HungerStage5DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is starving. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} is weak and single-minded: food is needed now.
+{% else %}
+{{ decnpc(actorUUID).name }} is not hungry. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} feels satisfied and focused.
+{% endif %}
+
+
+{# ----------------------------- SLEEP / FATIGUE ----------------------------- #}
+{% if
+  has_magic_effect(actorUUID, "Survival_RestedMarriageSkillEffect") or
+  has_magic_effect(actorUUID, "Survival_RestedWellSkillEffect") or
+  has_magic_effect(actorUUID, "Survival_RestedSkillEffect") or
+  has_magic_effect(actorUUID, "Survival_ExhaustionStage1DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ExhaustionStage3DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ExhaustionStage4DisplayEffect") or
+  has_magic_effect(actorUUID, "Survival_ExhaustionStage5DisplayEffect")
+%}
+{{ "#### Sleep" }}
+{% if has_magic_effect(actorUUID, "Survival_RestedMarriageSkillEffect") %}
+{{ decnpc(actorUUID).name }} enjoys Lover’s Comfort. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} is deeply refreshed and in high spirits.
+{% else if has_magic_effect(actorUUID, "Survival_RestedWellSkillEffect") %}
+{{ decnpc(actorUUID).name }} is well rested. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} feels sharp and ready.
+{% else if has_magic_effect(actorUUID, "Survival_RestedSkillEffect") %}
+{{ decnpc(actorUUID).name }} is rested. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} remains steady and clear.
+{% else if has_magic_effect(actorUUID, "Survival_ExhaustionStage1DisplayEffect") %}
+{{ decnpc(actorUUID).name }} feels refreshed. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} has {{ decnpc(actorUUID).possessive_pronoun }} energy reserves topped up.
+{% else if has_magic_effect(actorUUID, "Survival_ExhaustionStage3DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is tired. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} should sleep soon to restore {{ decnpc(actorUUID).possessive_pronoun }} strength.
+{% else if has_magic_effect(actorUUID, "Survival_ExhaustionStage4DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is weary. Judgment and reflexes are dulled; a bed is overdue for {{ decnpc(actorUUID).objective_pronoun }}.
+{% else if has_magic_effect(actorUUID, "Survival_ExhaustionStage5DisplayEffect") %}
+{{ decnpc(actorUUID).name }} is debilitated by exhaustion. {{ capitalize(decnpc(actorUUID).subjective_pronoun) }} needs real sleep immediately to regain {{ decnpc(actorUUID).possessive_pronoun }} faculties.
+{% endif %}
+{% endif %}
+
+{% endif %}

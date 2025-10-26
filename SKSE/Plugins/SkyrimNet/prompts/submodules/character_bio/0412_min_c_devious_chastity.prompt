@@ -1,0 +1,76 @@
+{# Chastity devices - visibility depends on clothing and render mode #}
+{% if worn_has_keyword(actorUUID, "zad_DeviousBelt") or worn_has_keyword(actorUUID, "zad_DeviousBra") %}
+{% if show_internal or clothing_state == "nude" or clothing_state == "minimal" %}
+{{ "### Chastity Devices" }}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousBelt") %}
+  {% if show_internal %}
+    {% if actor_gender == "male" %}
+- {{ actor_name }} is locked in a rigid chastity cage encasing his genitals, preventing erection.
+      {% if arousal_state == "moderately_aroused" %}
+  His cock attempts to harden within the restrictive device, causing discomfort.
+      {% else if arousal_state == "highly_aroused" %}
+  His cock strains painfully against the device, unable to fully erect. Pre-ejaculate leaks continuously despite the confinement.
+      {% endif %}
+    {% else %}
+- {{ actor_name }} is locked in a metal chastity belt covering her genitals.
+      {% if arousal_state == "moderately_aroused" %}
+  She shifts her stance as arousal builds, the unyielding metal preventing any relief.
+      {% else if arousal_state == "highly_aroused" %}
+  Arousal fluid leaks from beneath the belt, running down her thighs. She unconsciously grinds against the metal, seeking impossible relief.
+      {% endif %}
+    {% endif %}
+    {% if vibrators_active %}
+  (The device contains active vibrators that buzz persistently against confined flesh)
+    {% else if has_vibrators %}
+  (The device contains inactive vibrators that could be remotely activated)
+    {% endif %}
+  {% else %}
+    {# External view #}
+    {% if actor_gender == "male" %}
+- {{ actor_name }}'s genitals are locked in a visible chastity cage.
+    {% else %}
+- {{ actor_name }} wears a locked metal chastity belt.
+    {% endif %}
+    {% if vibrators_active %}
+  A mechanical buzzing sound emanates from the device.
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousBra") %}
+  {% if show_internal %}
+    {% if actor_gender == "male" %}
+- {{ actor_name }}'s chest is covered by a restrictive harness binding his torso.
+      {% if arousal_state == "moderately_aroused" %}
+  His nipples harden beneath the straps.
+      {% else if arousal_state == "highly_aroused" %}
+  His nipples are painfully erect beneath the tight straps, chest hypersensitive.
+      {% endif %}
+    {% else %}
+- {{ actor_name }}'s breasts are imprisoned in a rigid chastity bra.
+      {% if arousal_state == "moderately_aroused" %}
+  Her nipples harden and press against the unyielding material.
+      {% else if arousal_state == "highly_aroused" %}
+  Her nipples strain painfully against the cups, breasts aching for stimulation.
+      {% endif %}
+    {% endif %}
+    {% if vibrators_active and worn_has_keyword(actorUUID, "zad_DeviousPiercingsNipple") %}
+  (Vibrators positioned against nipple piercings are currently active)
+    {% else if worn_has_keyword(actorUUID, "zad_DeviousPiercingsNipple") %}
+  (Vibrators positioned against nipple piercings are currently inactive)
+    {% endif %}
+  {% else %}
+    {# External view #}
+    {% if actor_gender == "male" %}
+- {{ actor_name }}'s chest is covered by a restrictive harness.
+    {% else %}
+- {{ actor_name }}'s breasts are enclosed in a rigid chastity bra.
+    {% endif %}
+    {% if vibrators_active and worn_has_keyword(actorUUID, "zad_DeviousPiercingsNipple") %}
+  Faint buzzing emanates from the device.
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% endif %}
+{% endif %}

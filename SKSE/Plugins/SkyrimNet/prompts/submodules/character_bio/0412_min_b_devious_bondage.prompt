@@ -1,0 +1,84 @@
+{# Bondage and restraint equipment #}
+{% if worn_has_keyword(actorUUID, "zad_Lockable") %}
+{{ "### Bondage Equipment" }}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousYoke") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} is locked in a yoke, arms immobilized and thrust outward, chest prominently displayed.
+  {% else %}
+- {{ actor_name }} is locked in a yoke, arms immobilized and thrust outward, breasts prominently displayed.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousArmbinder") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }}'s arms are bound behind his back in an armbinder, forcing his chest forward and severely limiting mobility.
+  {% else %}
+- {{ actor_name }}'s arms are bound behind her back in an armbinder, forcing her chest forward and severely limiting mobility.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousCollar") %}
+- {{ actor_name }} wears a locked collar around their neck, a visible symbol of control.
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousGag") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }}'s mouth is sealed with a gag, reducing communication to muffled sounds.
+  {% else %}
+- {{ actor_name }}'s mouth is sealed with a gag, lips stretched obscenely, communication reduced to muffled sounds.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousBlindfold") %}
+- {{ actor_name }}'s vision is blocked by a blindfold, removing the ability to see surroundings.
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousHood") %}
+- {{ actor_name }}'s head is enclosed in a restrictive hood, limiting vision, hearing, and speech.
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousHarness") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} wears a body harness with straps emphasizing his musculature while restricting movement.
+  {% else %}
+- {{ actor_name }} wears a body harness with straps framing her breasts and body, restricting movement.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousCuffs") %}
+- {{ actor_name }} wears locked restraining cuffs that limit movement and prevent escape.
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousGloves") %}
+- {{ actor_name }}'s hands are encased in bondage gloves, rendering fingers useless for gripping or fine motor control.
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousBoots") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} wears restrictive bondage boots that limit stance and mobility.
+  {% else %}
+- {{ actor_name }} wears restrictive bondage boots with high heels, forcing a provocative stance and limiting mobility.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousCorset") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }}'s torso is constricted in a rigid corset that restricts breathing and forces upright posture.
+  {% else %}
+- {{ actor_name }}'s waist is cinched tight in a corset, exaggerating her figure while restricting breathing.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousSuit") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }} is sealed in a full-body bondage suit that restricts movement and sensation.
+  {% else %}
+- {{ actor_name }} is sealed in a full-body bondage suit that clings to every curve, with strategic openings for access.
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousHeavyBondage") %}
+- {{ actor_name }} is immobilized in heavy bondage equipment, physical freedom completely eliminated.
+{% endif %}
+{% endif %}

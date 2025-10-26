@@ -1,0 +1,54 @@
+{# Body piercings - visibility depends on exposure #}
+{% if worn_has_keyword(actorUUID, "zad_DeviousPiercingsNipple") or worn_has_keyword(actorUUID, "zad_DeviousPiercingsVaginal") %}
+{% if show_internal or clothing_state == "nude" or clothing_state == "minimal" %}
+{{ "### Body Piercings" }}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousPiercingsNipple") %}
+- {{ actor_name }}'s nipples are adorned with metal piercings.
+  {% if show_internal %}
+    {% if arousal_state == "moderately_aroused" %}
+  The jewelry enhances sensitivity, making the nipples increasingly responsive.
+    {% else if arousal_state == "highly_aroused" %}
+  The piercings dramatically amplify sensitivity. Each movement sends visible shudders through the body.
+    {% endif %}
+    {% if vibrators_active %}
+  (The piercings are vibrating, transmitting rhythmic pulses)
+    {% else if has_vibrators %}
+  (The piercings contain inactive vibrators)
+    {% endif %}
+  {% else %}
+    {% if vibrators_active and not worn_has_keyword(actorUUID, "zad_DeviousBra") %}
+  The piercings appear to be vibrating slightly.
+    {% endif %}
+  {% endif %}
+  {% if worn_has_keyword(actorUUID, "zad_DeviousBra") %}
+  (Currently concealed behind chastity bra)
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousPiercingsVaginal") %}
+  {% if clothing_state == "nude" or show_internal %}
+- {{ actor_name }}'s genitals feature decorative piercings.
+    {% if show_internal %}
+      {% if arousal_state == "moderately_aroused" %}
+  The metal jewelry heightens sensitivity in intimate areas.
+      {% else if arousal_state == "highly_aroused" %}
+  The piercings intensify overwhelming arousal. The metal glistens with arousal fluid, each movement causing tremors.
+      {% endif %}
+      {% if vibrators_active %}
+  (The piercings are vibrating intensely, stimulating with precise pulses)
+      {% else if has_vibrators %}
+  (The piercings contain inactive vibrators)
+      {% endif %}
+    {% else %}
+      {% if vibrators_active and not worn_has_keyword(actorUUID, "zad_DeviousBelt") %}
+  The piercings appear to be vibrating noticeably.
+      {% endif %}
+    {% endif %}
+    {% if worn_has_keyword(actorUUID, "zad_DeviousBelt") %}
+  (Currently concealed behind chastity belt)
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% endif %}
+{% endif %}

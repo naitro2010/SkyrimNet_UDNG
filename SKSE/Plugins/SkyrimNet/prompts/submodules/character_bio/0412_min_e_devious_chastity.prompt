@@ -1,0 +1,58 @@
+{# Plugs and inserted devices - only shown in internal perspectives #}
+{% if show_internal %}
+{% if worn_has_keyword(actorUUID, "zad_DeviousPlugVaginal") or worn_has_keyword(actorUUID, "zad_DeviousPlugAnal") %}
+{{ "### Inserted Devices" }}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousPlugVaginal") %}
+- {{ actor_name }} has a vaginal plug inserted, filling the passage.
+  {% if arousal_state == "moderately_aroused" %}
+  Occasional shifting indicates growing awareness of its presence.
+  {% else if arousal_state == "highly_aroused" %}
+  Hips rock unconsciously, seeking friction. Inner walls clench rhythmically around the unyielding device.
+  {% endif %}
+  {% if vibrators_active %}
+  (The plug vibrates intensely, buzzing against sensitive inner walls)
+  {% else if has_vibrators %}
+  (The plug contains an inactive vibrator)
+  {% endif %}
+  {% if worn_has_keyword(actorUUID, "zad_DeviousBelt") %}
+  (Locked in place by chastity belt, preventing removal)
+  {% else if clothing_state == "nude" %}
+  (Base visible between the legs)
+  {% endif %}
+{% endif %}
+
+{% if worn_has_keyword(actorUUID, "zad_DeviousPlugAnal") %}
+  {% if actor_gender == "male" %}
+- {{ actor_name }}'s anus is stretched around an anal plug.
+    {% if arousal_state == "moderately_aroused" %}
+  Occasional clenching suggests growing awareness. The pressure affects arousal.
+    {% else if arousal_state == "highly_aroused" %}
+  His body clenches rhythmically around the intrusion. The pressure against his prostate intensifies his erection.
+    {% endif %}
+    {% if vibrators_active %}
+  (The plug vibrates against his prostate, sending intense pulses through his body)
+    {% else if has_vibrators %}
+  (The plug contains an inactive vibrator)
+    {% endif %}
+  {% else %}
+- {{ actor_name }}'s anus is stretched around an anal plug.
+    {% if arousal_state == "moderately_aroused" %}
+  Occasional clenching suggests growing awareness of the intrusion.
+    {% else if arousal_state == "highly_aroused" %}
+  Her body clenches rhythmically around the intrusion, each movement sending visible shudders.
+    {% endif %}
+    {% if vibrators_active %}
+  (The plug vibrates intensely against sensitive rectal walls)
+    {% else if has_vibrators %}
+  (The plug contains an inactive vibrator)
+    {% endif %}
+  {% endif %}
+  {% if worn_has_keyword(actorUUID, "zad_DeviousBelt") %}
+  (Held firmly in place by chastity device)
+  {% else if clothing_state == "nude" %}
+  (Decorative base visible between the buttocks)
+  {% endif %}
+{% endif %}
+{% endif %}
+{% endif %}
