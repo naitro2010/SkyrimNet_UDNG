@@ -3,7 +3,11 @@ bool bHasDD = False
 bool bHasDDExpansion = False
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
-    SkyrimNetApi.DirectNarration(content,source,none)
+    If source==none
+        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"",20000,source,target)
+    Else
+        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"",20000,source,target)
+    EndIf
 EndFunction
 
 
@@ -56,7 +60,7 @@ Function RegisterDeviousActions(skyrimnet_UDNG_MCM mcm) global
     endif 
 
 
-    SkyrimNetApi.RegisterSubCategory("BDSMUNLOCK","unlock something on an actor","skynet_DeviousScript","DDNG_IsEligible","",1,"","UNEQUIP")
+    SkyrimNetApi.RegisterSubCategory("BDSMUNLOCK","unlock a gag, collar, chastity belt, or other BDSM device on a target","skynet_DeviousScript","DDNG_IsEligible","",1,"","UNEQUIP")
 
            SkyrimNetApi.RegisterAction("ExtCmdUnequipCollar", "Remove a collar on the target actor"+refinement, \
                                     "skynet_DeviousScript", "ExtCmdUnequipCollar_IsEligible", \
@@ -224,8 +228,7 @@ Function RegisterDeviousActions(skyrimnet_UDNG_MCM mcm) global
                                     "skynet_DeviousScript", "ExtCmdUnequipPetSuit", \
                                     "", "PAPYRUS_NESTED_ACTION", \
                                     1, "{\"target\": \"Actor\"}","UNEQUIP") 
-
-           SkyrimnetApi.RegisterDecorator("devious_stuff", "skynet_DeviousScript", "DeviousContextDecorator")                 
+                
 EndFunction
 
 ; -------------------------------- 
@@ -756,112 +759,4 @@ String Function ddudng_get_devices(Actor akSpeaker) global
 EndFunction
 
 
-String Function DeviousContextDecorator(Actor akSpeaker) global
-  zadLibs libs=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
-  string deviousContext = " "
-  if (akSpeaker == none)
-    Return " "
-  EndIF
-  if akSpeaker.IsChild()
-    Return " "
-  EndIf
-  Debug.Trace("[SkyrimNet] (DeviousScript) DeviousContextDecorator called with decoratorId: "+"and akActor: " + akSpeaker)
-  Actor[] actor_list=MiscUtil.ScanCellNPCs(akSpeaker,radius=1200.0)
-  Int actor_i=0
-  While (actor_i <= actor_list.length)
-  
-    Actor akActor=Game.GetPlayer()
-    If actor_i < actor_list.length
-        akActor=actor_list[actor_i]
-    EndIf
-    if !(akActor == akSpeaker)
-    if !(akActor == none)
-        if !(akActor.IsChild())
-            string actorName = akActor.GetLeveledActorBase().GetName()
-            if akActor.WornHasKeyword(libs.zad_DeviousPlugVaginal)
-              deviousContext=deviousContext+"\n"+(actorName + " has a plug in her pussy capable of powerful vibrations.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousPlugAnal)
-              deviousContext=deviousContext+"\n"+(actorName + " has a plug in thier ass capable of powerful vibrations.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousBelt)
-              deviousContext=deviousContext+"\n"+(actorName + " has a chastity belt locked over her pussy")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousCollar)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a collar marking her as someone's property.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousPiercingsNipple)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing nipple piercings capable of powerful vibration.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousPiercingsVaginal)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a clitoral ring capable of powerful vibration.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousArmCuffs)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing arm cuffs on each arm.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousLegCuffs)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing leg cuffs on each leg.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousBra)
-              deviousContext=deviousContext+"\n"+(actorName + "'s breasts are locked under a chastity bra.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousArmbinder)
-              deviousContext=deviousContext+"\n"+(actorName + "'s hands are secured behind her back by an armbinder, leaving her helpless.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousYoke)
-              deviousContext=deviousContext+"\n"+(actorName + "'s hands and neck are locked in an uncomfortable yoke, leaving her helpless.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousElbowTie)
-              deviousContext=deviousContext+"\n"+(actorName + "'s arms are tied behind her back ina strict elbow tie, leaving her helpless.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousPetSuit)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a full-body suit made out of shiny latex (Referred to as Ebonite) leaving nothing to the imagination.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousStraitJacket)
-              deviousContext=deviousContext+"\n"+(actorName + "'s arms are secured by a strait jacket, leaving her helpless.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousCorset)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a corset around her waist.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousHood)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a hood over her head.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousHobbleSkirt)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a confining hobble-skirt that is restricting her movements.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousGloves)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a a pair of locking gloves.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousSuit)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing skin tight body-suit.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousGag)
-              deviousContext=deviousContext+"\n"+(actorName + " is gagged and is drooling.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousGagPanel)
-              deviousContext=deviousContext+"\n"+(actorName + " is gagged with a panel-gag that leaves her tongue exposed and is unable to close their mouth.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousGagLarge)
-              deviousContext=deviousContext+"\n"+(actorName + " is gagged with a large gag and cannot speak clearly.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousHarness)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a form-fitting leather harness.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousBlindfold)
-              deviousContext=deviousContext+"\n"+(actorName + " is blindfolded and cannot see where she is going.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousAnkleShackles)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a set of ankle shackles, restricting her ability to move quickly.")
-            EndIf
-            if akActor.WornHasKeyword(libs.zad_DeviousClamps)
-              deviousContext=deviousContext+"\n"+(actorName + " is wearing a set of painful nipples clamps.")
-            EndIf
-        EndIf
-    EndIf
-    EndIf
-    actor_i = actor_i+1
-    
-  EndWhile
-  return deviousContext
-EndFunction
 

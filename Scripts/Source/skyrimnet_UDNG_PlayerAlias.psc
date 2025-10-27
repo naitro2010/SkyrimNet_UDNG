@@ -4,26 +4,10 @@ skyrimnet_UDNG_Groups Property groups Auto
 
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
-    float currentTime=Utility.GetCurrentRealTime()
-    If JsonUtil.HasFloatValue("DirectTime","LastEventTime")
-        if (JsonUtil.GetFloatValue("DirectTime","LastEventTime") > currentTime)
-            JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)		
-	    Else
-            if (JsonUtil.GetFloatValue("DirectTime","LastEventTime")+30.0 < (currentTime))
-                JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)
-                SkyrimNetApi.DirectNarration(content,source,target)
-            Else
-                If source == none
-                    SkyrimNetApi.RegisterShortLivedEvent("UDNG"+currentTime,"DDUDNG",content,"",60000,source,target)
-                Else
-                    SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"UDNG"+currentTime,"DDUDNG",content,"",60000,source,target)
-                EndIf
-                
-            EndIf
-        EndIf
+    If source==none
+        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"",20000,source,target)
     Else
-        JsonUtil.SetFloatValue("DirectTime","LastEventTime",currentTime)    
-        SkyrimNetApi.DirectNarration(content,source,target)
+        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"",20000,source,target)
     EndIf
 EndFunction
 
