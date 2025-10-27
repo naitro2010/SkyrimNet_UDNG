@@ -1,0 +1,21 @@
+name: "ddudng_other"
+description: ""
+
+eventCriteria:
+  eventType: "DDUDNG"
+  schemaConditions:
+    - fieldPath: "info"
+      operator: "does not contain"
+      value: "cumming"
+      caseSensitive: false
+
+response:
+  type: "direct_narration"
+  content: "{{ event_json.info }}"
+
+audience: "nearby_npcs"
+
+enabled: true
+probability: 0.6
+cooldownSeconds: 15
+priority: 1

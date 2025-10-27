@@ -4,11 +4,12 @@ bool bHasDDExpansion = False
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
     If source==none
-        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"",20000,source,target)
+        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
     Else
-        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"",20000,source,target)
+        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
     EndIf
 EndFunction
+
 
 
 Actor function GetNearestAdultActor() Global

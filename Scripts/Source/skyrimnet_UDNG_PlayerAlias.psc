@@ -5,9 +5,9 @@ skyrimnet_UDNG_Groups Property groups Auto
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
     If source==none
-        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"",20000,source,target)
+        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
     Else
-        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"",20000,source,target)
+        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
     EndIf
 EndFunction
 
@@ -20,6 +20,7 @@ Event OnPlayerLoadGame()
 EndEvent
 
 Function Setup()
+    SkyrimNetApi.RegisterEventSchema("DDUDNG","SkyrimNet_DDUDNG Event","Events related to actors wearing DDNG devices","[{\"name\":\"info\",\"type\":0,\"required\":true,\"description\":\"Event Info\"}]","{\"recent_events\":\"{{info}}\",\"raw\":\"{{info}}\",\"compact\":\"{{info}}\",\"verbose\":\"{{info}}\"}",true,20000) 
     ; Creates the JSON list 
     ; skyrimnet_UDNG_BuildList.BuildDeviceListJson()
     groups.Setup()

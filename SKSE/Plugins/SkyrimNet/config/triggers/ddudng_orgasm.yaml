@@ -1,0 +1,21 @@
+name: "ddudng_orgasm"
+description: ""
+
+eventCriteria:
+  eventType: "DDUDNG"
+  schemaConditions:
+    - fieldPath: "info"
+      operator: "contains"
+      value: "cumming"
+      caseSensitive: false
+
+response:
+  type: "direct_narration"
+  content: "{{ event_json.info }}"
+
+audience: "nearby_npcs"
+
+enabled: true
+probability: 1
+cooldownSeconds: 15
+priority: 1
