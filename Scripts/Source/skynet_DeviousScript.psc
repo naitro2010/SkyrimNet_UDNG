@@ -21,12 +21,13 @@ function LockDeviceOnActor(Actor akOriginator, string paramsJson, Form inventory
         return
     endif
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
-    if !TargetAllowed(akOriginator, akTarget) || akTarget.IsChild()
+    if !TargetAllowed(akOriginator, akTarget, true) || akTarget.IsChild()
         return
     endif
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
     Armor deviceInventory=(inventoryDevice as Armor);  
-    libs_local.LockDevice(akTarget,deviceInventory,true)
+    libs_local.LockDevice(akTarget,deviceInventory,false)
+    SendPapyrusEvent(akOriginator.GetDisplayName()+" locked a "+deviceInventory.GetName()+" on "+akTarget.GetDisplayName(),akOriginator,none) 
     return
 EndFunction
 
@@ -40,16 +41,16 @@ EndFunction
 Function RegisterDeviousActions(skyrimnet_UDNG_MCM mcm) global
 
     String refinement = "" 
-    if mcm.npc_equip_others_allowed
+    if !mcm.npc_unequip_others_allowed
         refinement = "other NPCs"
     endif 
-    if mcm.npc_equip_others_allowed
+    if !mcm.npc_unequip_self_allowed
         if refinement == "" 
             refinement += ", "
         endif 
         refinement = "themselves"
     endif 
-    if mcm.npc_equip_others_allowed
+    if !mcm.npc_unequip_player_allowed
         if refinement == "" 
             refinement += ", "
         endif 
@@ -236,22 +237,39 @@ EndFunction
 ; Helper Function 
 ; -------------------------------- 
 
-bool Function TargetAllowed(Actor akOriginator, Actor akTarget) global 
+bool Function TargetAllowed(Actor akOriginator, Actor akTarget, bool locking) global 
     skyrimnet_UDNG_MCM mcm=Game.GetFormFromFile(0x00800, "SkyrimNetUDNG.esp") as skyrimnet_UDNG_MCM 
-    if akTarget == Game.GetPlayer() 
-        if !mcm.npc_equip_player_allowed 
-            Debug.Trace("[SkyrimNet_UDNG] TargetAllowed player is not allowed")
+    if locking
+        if akTarget == Game.GetPlayer() 
+            if !mcm.npc_equip_player_allowed 
+                Debug.Trace("[SkyrimNet_UDNG] TargetAllowed player is not allowed")
+                return false 
+            endif 
+        elseif akTarget == akOriginator 
+            if !mcm.npc_equip_self_allowed 
+                Debug.Trace("[SkyrimNet_UDNG] TargetAllowed self is not allowed")
+                return false 
+            endif 
+        elseif !mcm.npc_equip_others_allowed 
+            Debug.Trace("[SkyrimNet_UDNG] TargetAllowed other is not allowed")
             return false 
         endif 
-    elseif akTarget == akOriginator 
-        if !mcm.npc_equip_self_allowed 
-            Debug.Trace("[SkyrimNet_UDNG] TargetAllowed self is not allowed")
+    else
+        if akTarget == Game.GetPlayer() 
+            if !mcm.npc_unequip_player_allowed 
+                Debug.Trace("[SkyrimNet_UDNG] TargetAllowed player is not allowed")
+                return false 
+            endif 
+        elseif akTarget == akOriginator 
+            if !mcm.npc_unequip_self_allowed 
+                Debug.Trace("[SkyrimNet_UDNG] TargetAllowed self is not allowed")
+                return false 
+            endif 
+        elseif !mcm.npc_unequip_others_allowed 
+            Debug.Trace("[SkyrimNet_UDNG] TargetAllowed other is not allowed")
             return false 
         endif 
-    elseif !mcm.npc_equip_others_allowed 
-        Debug.Trace("[SkyrimNet_UDNG] TargetAllowed other is not allowed")
-        return false 
-    endif 
+    endif
     return true 
 EndFunction 
 
@@ -348,7 +366,7 @@ Function ExtCmdUnequip(Actor akOriginator, String paramsJson, String name ) glob
             endif 
         endif 
     endif 
-    if !TargetAllowed(akOriginator, akTarget) 
+    if !TargetAllowed(akOriginator, akTarget,false) 
         return 
     endif 
 
@@ -367,12 +385,11 @@ Function ExtCmdUnequip(Actor akOriginator, String paramsJson, String name ) glob
     String t_name = akTarget.GetDisplayName() 
     Debug.Trace("[SkyrimNet_UDNG] ExtCmdUnequip "+o_name+" > "+t_name+" with "+name)
     if (libs_local.UnlockDeviceByKeyword(akTarget,kword))
-        SkyrimNetApi.RegisterEvent("Unlock:success", o_name+" unlocks a "+name+" on "+t_name,akOriginator,akTarget) 
         ; was causing `warning: Assigning None to a non-object variable named "::temp57"`
-        ; SendPapyrusEvent(akOriginator.GetDisplayName()+" removed the "+name+" on "+akTarget.GetDisplayName(),akOriginator,none) 
+        SendPapyrusEvent(o_name+" unlocks a "+name+" on "+t_name,akOriginator,none) 
         Debug.Trace("[SkyrimNet_UDNG] ExtCmdUnequip success")
     else 
-        ;SkyrimNetApi.RegisterEvent("Unlock:failure", o_name+" tried, and failed, to unlock a "+name+" on "+t_name,akOriginator,akTarget) 
+        SendPapyrusEvent(o_name+" tried, and failed, to unlock a "+name+" on "+t_name,akOriginator,none) 
         Debug.Trace("[SkyrimNet_UDNG] ExtCmdUnequip failed")
     EndIf
 EndFunction

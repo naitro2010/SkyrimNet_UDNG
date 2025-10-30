@@ -12,6 +12,9 @@ int options = 0
 String options_page = "options"
 
 ; Combination of NPC allowed actions 
+bool Property npc_unequip_others_allowed Auto 
+bool Property npc_unequip_player_allowed Auto 
+bool Property npc_unequip_self_allowed Auto 
 bool Property npc_equip_others_allowed Auto 
 bool Property npc_equip_player_allowed Auto 
 bool Property npc_equip_self_allowed Auto 
@@ -22,6 +25,9 @@ Event OnInit()
     npc_equip_others_allowed = true 
     npc_equip_player_allowed = true 
     npc_equip_self_allowed = false 
+    npc_unequip_others_allowed = true 
+    npc_unequip_player_allowed = true 
+    npc_unequip_self_allowed = false 
     Setup() 
 EndEvent 
 
@@ -44,12 +50,16 @@ Function PageOptions()
     AddToggleOptionST("PlayerActionKeyToggle","Enable the Player Actions hot key",player_action_allowed)
     AddKeyMapOptionST("PlayerActionKeySet", "Player wear/remove DD on an NPC", player_action_key)
 
-    AddHeaderOption("NPC can Equip/Unequip Devices: ")
+    AddHeaderOption("NPC can Equip Devices: ")
     AddHeaderOption("")
     AddToggleOptionST("NPC_Equip_Others","on other NPCs",npc_equip_others_allowed)
     AddToggleOptionST("NPC_Equip_Self","on themselves",npc_equip_self_allowed)
     AddToggleOptionST("NPC_Equip_Player","on the player",npc_equip_player_allowed)
-
+    AddHeaderOption("NPC can Unequip Devices: ")
+    AddHeaderOption("")    
+    AddToggleOptionST("NPC_Unequip_Others","on other NPCs",npc_unequip_others_allowed)
+    AddToggleOptionST("NPC_Unequip_Self","on themselves",npc_unequip_self_allowed)
+    AddToggleOptionST("NPC_Unequip_Player","on the player",npc_unequip_player_allowed)
     AddHeaderOption("                                      ")
     AddHeaderOption("Debug Options")
     AddHeaderOption("")
@@ -264,7 +274,7 @@ State NPC_Equip_Others
         ForcePageReset()
     EndEvent
     Event OnHighlightST()
-        SetInfoText("Will allow the NPCs to equip/unequip devices on other NPCs.\n")
+        SetInfoText("Will allow the NPCs to equip devices on other NPCs.\n")
     EndEvent
 EndState
 
@@ -275,7 +285,7 @@ State NPC_Equip_Self
         ForcePageReset()
     EndEvent
     Event OnHighlightST()
-        SetInfoText("Will allow the NPCs to equip/unequip devices on themselves.\n")
+        SetInfoText("Will allow the NPCs to equip devices on themselves.\n")
     EndEvent
 EndState
 
@@ -286,6 +296,39 @@ State NPC_Equip_Player
         ForcePageReset()
     EndEvent
     Event OnHighlightST()
-        SetInfoText("Will allow the NPCs to equip/unequip devices on the player.\n")
+        SetInfoText("Will allow the NPCs to equip devices on the player.\n")
+    EndEvent
+EndState
+
+State NPC_Unequip_Player
+    Event OnSelectST()
+        npc_unequip_player_allowed = !npc_unequip_player_allowed
+        SetToggleOptionValueST(npc_unequip_player_allowed)
+        ForcePageReset()
+    EndEvent
+    Event OnHighlightST()
+        SetInfoText("Will allow the NPCs to unequip devices on the player.\n")
+    EndEvent
+EndState
+
+State NPC_Unequip_Self
+    Event OnSelectST()
+        npc_unequip_self_allowed = !npc_unequip_self_allowed
+        SetToggleOptionValueST(npc_unequip_self_allowed)
+        ForcePageReset()
+    EndEvent
+    Event OnHighlightST()
+        SetInfoText("Will allow the NPCs to unequip devices on themselves.\n")
+    EndEvent
+EndState
+
+State NPC_Unequip_Others
+    Event OnSelectST()
+        npc_unequip_others_allowed = !npc_unequip_others_allowed
+        SetToggleOptionValueST(npc_unequip_others_allowed)
+        ForcePageReset()
+    EndEvent
+    Event OnHighlightST()
+        SetInfoText("Will allow the NPCs to unequip devices on other NPCs.\n")
     EndEvent
 EndState
