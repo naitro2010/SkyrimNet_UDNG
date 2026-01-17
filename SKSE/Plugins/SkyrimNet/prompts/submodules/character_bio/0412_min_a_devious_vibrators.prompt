@@ -1,6 +1,4 @@
-{# Render mode flags #}
-{% set show_internal = (render_mode == "full" or render_mode == "thoughts" or render_mode == "thought" or render_mode == "transform" or render_mode == "book") %}
-{% set show_external_only = (render_mode == "dialogue_target") %}
+{% if render_mode == "full" or render_mode == "thoughts" or render_mode == "transform" or render_mode == "dialogue_target" %}
 {# Vibration device status #}
 {% if has_vibrators %}
 {{ "### Vibration Status" }}
@@ -32,10 +30,11 @@
 {% else %}
   {% if show_internal %}
     {% if actor_gender == "male" %}
-- Vibrating devices on or inside {{ actor_name }}'s body are currently inactive. Though silent now, they could be activated remotely at any moment.
+- Vibrating devices on or inside {{ actor_name }}'s body are currently NOT ACTIVE. Though silent now, they could be activated remotely at any moment.
     {% else %}
-- Vibrating devices on or inside {{ actor_name }}'s body are currently inactive. Though silent now, they could be activated remotely at any moment.
+- Vibrating devices on or inside {{ actor_name }}'s body are currently NOT ACTIVE. Though silent now, they could be activated remotely at any moment.
     {% endif %}
   {% endif %}
+{% endif %}
 {% endif %}
 {% endif %}

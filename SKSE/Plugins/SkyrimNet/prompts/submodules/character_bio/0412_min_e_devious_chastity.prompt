@@ -1,6 +1,4 @@
-{# Render mode flags #}
-{% set show_internal = (render_mode == "full" or render_mode == "thoughts" or render_mode == "thought" or render_mode == "transform" or render_mode == "book") %}
-{% set show_external_only = (render_mode == "dialogue_target") %}
+{% if render_mode == "full" or render_mode == "thoughts" or render_mode == "transform" or render_mode == "dialogue_target" %}
 {# Plugs and inserted devices - only shown in internal perspectives #}
 {% if show_internal %}
 {% if worn_has_keyword(actorUUID, "zad_DeviousPlugVaginal") or worn_has_keyword(actorUUID, "zad_DeviousPlugAnal") %}
@@ -56,6 +54,7 @@
   {% else if clothing_state == "nude" %}
   (Decorative base visible between the buttocks)
   {% endif %}
+{% endif %}
 {% endif %}
 {% endif %}
 {% endif %}
