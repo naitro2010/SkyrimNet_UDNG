@@ -1,6 +1,4 @@
-{# Render mode flags #}
-{% set show_internal = (render_mode == "full" or render_mode == "thoughts" or render_mode == "thought" or render_mode == "transform" or render_mode == "book") %}
-{% set show_external_only = (render_mode == "dialogue_target") %}
+{% if render_mode == "full" or render_mode == "thoughts" or render_mode == "transform" or render_mode == "dialogue_target" %}
 {# Detailed arousal state - only shown in internal perspectives #}
 {% if show_internal %}
 {{ "### Arousal State" }}
@@ -23,5 +21,9 @@
   {% else %}
 - {{ actor_name }} is intensely aroused. Her nipples are painfully erect, sex swollen and dripping, breathing ragged. Her thighs tremble and her eyes show desperate need.
   {% endif %}
+{% endif %}
+{% if has_magic_effect(actorUUID, "UD_OrgasmExhaustion_ME") %}
+- {{ actor_name }} is exhausted from orgasming too many times recently.
+{% endif %}
 {% endif %}
 {% endif %}
