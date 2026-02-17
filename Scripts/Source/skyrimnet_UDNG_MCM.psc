@@ -18,7 +18,7 @@ bool Property npc_unequip_self_allowed Auto
 bool Property npc_equip_others_allowed Auto 
 bool Property npc_equip_player_allowed Auto 
 bool Property npc_equip_self_allowed Auto 
-
+bool Property quest_devices_allowed Auto 
 zadlibs libs_local = None 
 
 Event OnInit() 
@@ -28,6 +28,7 @@ Event OnInit()
     npc_unequip_others_allowed = true 
     npc_unequip_player_allowed = true 
     npc_unequip_self_allowed = false 
+    quest_devices_allowed = false
     Setup() 
 EndEvent 
 
@@ -63,6 +64,7 @@ Function PageOptions()
     AddHeaderOption("                                      ")
     AddHeaderOption("Debug Options")
     AddHeaderOption("")
+    AddToggleOptionST("Quest_Devices_Allowed","Allow Quest Devices to be Equipped",quest_devices_allowed)
     AddToggleOptionST("DebugKeyToggle","Debug functions key",debug_key_allowed)
     AddKeyMapOptionST("DebugKeySet", "Ability to call the LLM Actions Fuctions", debug_key)
 EndFunction
@@ -266,7 +268,16 @@ EndFunction
 ; --------------------------------------------
 ;  Allowable actions 
 ; --------------------------------------------
-
+State Quest_Devices_Allowed
+    Event OnSelectST()
+        quest_devices_allowed = !quest_devices_allowed
+        SetToggleOptionValueST(quest_devices_allowed)
+        ForcePageReset()
+    EndEvent
+    Event OnHighlightST()
+        SetInfoText("Will allow Quest devices to be equipped\n")
+    EndEvent
+EndState
 State NPC_Equip_Others
     Event OnSelectST()
         npc_equip_others_allowed = !npc_equip_others_allowed

@@ -17,17 +17,41 @@ Actor function GetNearestAdultActor() Global
 EndFunction
 
 function LockDeviceOnActor(Actor akOriginator, string paramsJson, Form inventoryDevice) Global
+    skyrimnet_UDNG_MCM mcm=Game.GetFormFromFile(0x00800, "SkyrimNetUDNG.esp") as skyrimnet_UDNG_MCM 
     if akOriginator.IsChild()
         return
     endif
     actor akTarget = SkyrimNetApi.GetJsonActor(paramsJson, "target", Game.GetPlayer())
     if !TargetAllowed(akOriginator, akTarget, true) || akTarget.IsChild()
+        SendPapyrusEvent(akOriginator.GetDisplayName()+" couldn't find a "+deviceInventory.GetName()+" to lock on "+akTarget.GetDisplayName(),akOriginator,none) 
         return
     endif
     zadLibs libs_local=Game.GetFormFromFile(0x00F624, "Devious Devices - Integration.esm") as zadlibs
     Armor deviceInventory=(inventoryDevice as Armor);  
-    libs_local.LockDevice(akTarget,deviceInventory,false)
-    SendPapyrusEvent(akOriginator.GetDisplayName()+" locked a "+deviceInventory.GetName()+" on "+akTarget.GetDisplayName(),akOriginator,none) 
+    If !mcm.quest_devices_allowed
+        If deviceInventory.HasKeyword(Keyword.GetKeyword("zad_QuestItem"))
+            SendPapyrusEvent(akOriginator.GetDisplayName()+" couldn't find a "+deviceInventory.GetName()+" to lock on "+akTarget.GetDisplayName(),akOriginator,none) 
+            return
+        EndIf
+        If deviceInventory.HasKeyword(Keyword.GetKeyword("zad_BlockGeneric"))
+            SendPapyrusEvent(akOriginator.GetDisplayName()+" couldn't find a "+deviceInventory.GetName()+" to lock on "+akTarget.GetDisplayName(),akOriginator,none) 
+            return
+        EndIf 
+        Armor renderDevice=libs_local.GetRenderedDevice(deviceInventory)
+        If renderDevice.HasKeyword(Keyword.GetKeyword("zad_QuestItem"))
+            SendPapyrusEvent(akOriginator.GetDisplayName()+" couldn't find a "+deviceInventory.GetName()+" to lock on "+akTarget.GetDisplayName(),akOriginator,none) 
+            return 
+        EndIf
+        If renderDevice.HasKeyword(Keyword.GetKeyword("zad_BlockGeneric"))
+            SendPapyrusEvent(akOriginator.GetDisplayName()+" couldn't find a "+deviceInventory.GetName()+" to lock on "+akTarget.GetDisplayName(),akOriginator,none) 
+            return
+        EndIf        
+    EndIf
+    If libs_local.LockDevice(akTarget,deviceInventory,false)
+        SendPapyrusEvent(akOriginator.GetDisplayName()+" locked a "+deviceInventory.GetName()+" on "+akTarget.GetDisplayName(),akOriginator,none) 
+    Else
+        SendPapyrusEvent(akOriginator.GetDisplayName()+" tried to lock a "+deviceInventory.GetName()+" on "+akTarget.GetDisplayName()+" but it didn't fit",akOriginator,none) 
+    EndIf
     return
 EndFunction
 
