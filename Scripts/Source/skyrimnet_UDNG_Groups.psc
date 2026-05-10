@@ -175,7 +175,7 @@ int Function ChangeDevices(Actor target, int devices)
         Armor deviceRendered = JMap.getForm(device, "formRendered") as Armor 
         Keyword kword = JMap.GetForm(device,"keyword") as Keyword
         if 1 == zlibs.IsWearingDevice(target, deviceRendered, kword) 
-            name = name + " (remove)"
+            name = "-- "+name + " --"
             wearing = device
         endif 
         listMenu.AddEntryItem(name)
