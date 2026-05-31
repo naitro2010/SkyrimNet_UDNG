@@ -2,15 +2,21 @@ name: "ddudng_other"
 description: ""
 
 eventCriteria:
-  eventType: "DDUDNG"
+  eventType: "mod_event"
+  schemaConditions:
+    - fieldPath: "event_name"
+      operator: "equals"
+      value: "SkyrimNetDDUDNG_Event"
+      caseSensitive: false
 
 response:
   type: "direct_narration"
-  content: "{{ event_json.info }}"
+  content: "{{ event_json.str_arg }}"
 
 audience: "nearby_npcs"
 
 enabled: true
-probability: 0.6
-cooldownSeconds: 15
+interrupt: true
+probability: 1
+cooldownSeconds: 45
 priority: 1

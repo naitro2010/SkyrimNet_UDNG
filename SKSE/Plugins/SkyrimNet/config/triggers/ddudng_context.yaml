@@ -1,0 +1,21 @@
+name: "ddudng_context"
+description: ""
+
+eventCriteria:
+  eventType: "mod_event"
+  schemaConditions:
+    - fieldPath: "event_name"
+      operator: "equals"
+      value: "SkyrimNetDDUDNG_Event"
+
+response:
+  type: "persistent_generic"
+  content: "{{ event_json.str_arg }}"
+
+audience: "nearby_npcs"
+
+enabled: true
+interrupt: false
+probability: 1
+cooldownSeconds: 0
+priority: 1

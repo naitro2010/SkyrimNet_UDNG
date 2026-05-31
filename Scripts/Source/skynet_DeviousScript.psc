@@ -3,10 +3,9 @@ bool bHasDD = False
 bool bHasDDExpansion = False
 
 bool function SendPapyrusEvent(String content, Actor source, Actor target) Global
-    If source==none
-        SkyrimNetApi.RegisterShortLivedEvent("DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
+    if (source == None)
     Else
-        SkyrimNetApi.RegisterShortLivedEvent(source.GetActorBase().GetName()+"DDUDNG","DDUDNG",content,"{\"info\":\""+content+"\"}",30000,source,target)
+        source.SendModEvent("SkyrimNetDDUDNG_Event",content)
     EndIf
 EndFunction
 
