@@ -1,0 +1,29 @@
+name: ActivateVibratorOnActor
+description: Turn on a vibrator on an actor.
+questEditorId: zadQuest
+scriptName: zadlibs_UDPatch
+executionFunctionName: VibrateEffect
+parameterMapping:
+  - type: dynamic
+    name: Actor
+    description: The target actor with a vibrator.
+  - type: dynamic
+    name: vibrator_strength
+    description: A integer value from 1 to 100 to set the vibrator strength to.
+    optional: true
+    default: 100
+  - type: dynamic
+    name: vibration_duration
+    description: a integer value for vibration time in seconds between 5 and 240
+    optional: true
+    default: 60
+  - type: dynamic
+    name: teaseOnly
+    description: a boolean value, true if the vibrator should only tease the target or false to make the target cum
+    optional: true
+    default: false
+  - type: static
+    value: false
+    name: silent
+    description: Static bool parameter
+enabled: false

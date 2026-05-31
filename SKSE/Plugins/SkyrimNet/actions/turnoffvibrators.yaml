@@ -1,0 +1,10 @@
+name: TurnOffVibrators
+description: Turn off all the vibrators on an actor.
+questEditorId: zadQuest
+scriptName: zadlibs_UDPatch
+executionFunctionName: StopVibrating
+parameterMapping:
+  - type: dynamic
+    name: Actor
+    description: The target actor
+enabled: false
