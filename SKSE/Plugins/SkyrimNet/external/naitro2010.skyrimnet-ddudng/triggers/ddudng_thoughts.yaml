@@ -1,0 +1,14 @@
+name: ddudng_thoughts
+eventCriteria:
+  eventType: mod_event
+  schemaConditions:
+    - fieldPath: event_name
+      operator: equals
+      value: SkyrimNetDDUDNG_Event
+      caseSensitive: false
+audience: player
+response:
+  type: player_thought
+  content: "{{ event_json.str_arg }}"
+enabled: true
+cooldownSeconds: 5

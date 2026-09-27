@@ -1,0 +1,19 @@
+name: ddudng_orgasm
+eventCriteria:
+  eventType: mod_event
+  schemaConditions:
+    - fieldPath: event_name
+      operator: equals
+      value: SkyrimNetDDUDNG_Event
+      caseSensitive: false
+    - fieldPath: str_arg
+      operator: contains
+      value: cumming
+      caseSensitive: false
+audience: everyone
+response:
+  type: direct_narration
+  content: "{{ event_json.str_arg }}"
+enabled: true
+cooldownSeconds: 10
+interrupt: true

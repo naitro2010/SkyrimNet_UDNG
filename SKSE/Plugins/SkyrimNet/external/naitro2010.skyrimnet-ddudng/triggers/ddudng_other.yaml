@@ -18,5 +18,5 @@ audience: "nearby_npcs"
 enabled: true
 interrupt: true
 probability: 1
-cooldownSeconds: 45
+cooldownSeconds: 30
 priority: 1

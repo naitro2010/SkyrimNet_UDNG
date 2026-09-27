@@ -1,0 +1,32 @@
+{
+  "author": "naitro2010",
+  "icon": "listing",
+  "id": "naitro2010.skyrimnet-ddudng",
+  "min_skyrimnet_version": "0.25.0",
+  "mods": [
+    {
+      "file": "UnforgivingDevices.esp",
+      "name": "UnforgivingDevices.esp",
+      "required": false
+    },
+    {
+      "file": "Devious Devices - Integration.esm",
+      "name": "Devious Devices - Integration.esm",
+      "required": true
+    }
+  ],
+  "nsfw": true,
+  "tagline": "DDNG and UDNG integration for SkyrimNet",
+  "description": "[GitHub](https://github.com/naitro2010/SkyrimNet_UDNG)",  
+  "tags": [
+    "DDNG",
+    "UDNG",
+    "integration",
+    "Devious",
+    "Devices",
+    "Unforgiving"
+  ],
+  "title": "SkyrimNet_DDUDNG",
+  "type": "bundle",
+  "version": "0.12.0"
+}
