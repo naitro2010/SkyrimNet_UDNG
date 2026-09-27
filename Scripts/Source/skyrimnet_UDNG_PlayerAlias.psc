@@ -114,5 +114,5 @@ Event OnStopMinigame(String source,Form WearerF,Form HelperF,String minigame,flo
 
 EndEvent
 Event OnOrgasm(string eventName, string strArg, float numArg, Form sender)
-    SendPapyrusEvent(strArg+" is cumming!",none,none)
+    SendPapyrusEvent(strArg+" is cumming!",Game.GetPlayer(),none)
 EndEvent
